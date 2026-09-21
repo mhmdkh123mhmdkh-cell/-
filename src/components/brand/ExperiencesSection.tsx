@@ -26,11 +26,10 @@ export function ExperiencesSection() {
               className="editorial-card bg-[#102F49] border border-[#2A526A] p-8 sm:p-9 flex flex-col justify-start group hover:border-[#1677B7] h-full"
             >
               {/* Index header */}
-              <div className="flex items-center justify-between pb-4 border-b border-[#2A526A]">
+              <div className="pb-4 border-b border-[#2A526A]">
                 <span className="text-xs font-mono font-bold tracking-widest text-[#1677B7]">
                   0{index + 1}
                 </span>
-                <span className="text-xs text-[#FFFFFF] font-semibold">Track Record</span>
               </div>
 
               {/* Title & Description with balanced vertical spacing */}

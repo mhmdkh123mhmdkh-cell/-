@@ -10,9 +10,11 @@ export interface Translations {
     talkCta: string;
   };
   hero: {
-    headline: string;
-    support: string;
-    availability: string;
+    name: string;
+    tagline: string;
+    headline?: string;
+    support?: string;
+    availability?: string;
     primaryCta: string;
     secondaryCta: string;
   };
@@ -76,7 +78,9 @@ export const content: Record<Language, Translations> = {
       talkCta: "Let's talk",
     },
     hero: {
-      headline: "Let me show you\nwhat I can do.",
+      name: "Mohammad Alkhayouti",
+      tagline: "I help turn an idea into content, design, and a website.",
+      headline: "Mohammad Alkhayouti",
       support: "",
       availability: "",
       primaryCta: "What can I offer?",
@@ -184,7 +188,9 @@ export const content: Record<Language, Translations> = {
       talkCta: "لنتحدث",
     },
     hero: {
-      headline: "دعني أريك\nما أستطيع فعله.",
+      name: "محمد الخيوتي",
+      tagline: "أساعد في تحويل الفكرة إلى محتوى وتصميم وموقع.",
+      headline: "محمد الخيوتي",
       support: "",
       availability: "",
       primaryCta: "ماذا أستطيع أن أقدّم؟",

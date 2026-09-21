@@ -7,33 +7,19 @@ export function HeroSection() {
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-[#C7DDE8] border-b border-[#2A526A]">
       <div className="editorial-shell">
         <div className="max-w-3xl space-y-6 md:space-y-8">
-          {/* Top Identifier */}
-          <div className="flex items-center gap-3">
-            <span className="w-6 h-[2px] bg-[#1677B7]" />
-            <span className="text-sm sm:text-base font-bold tracking-tight text-[#1677B7]">
-              {t.nav.name}
-            </span>
-          </div>
-
-          {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#09263B] leading-[1.18] whitespace-pre-line">
-            {t.hero.headline}
-          </h1>
-
-          {/* Support Text */}
-          {t.hero.support && (
-            <p className="text-lg sm:text-xl text-[#09263B]/85 leading-relaxed max-w-2xl font-normal">
-              {t.hero.support}
-            </p>
-          )}
-
-          {/* Availability Badge */}
-          {t.hero.availability && (
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-[3px] bg-[#102F49] border border-[#2A526A] text-xs sm:text-sm font-medium text-[#EAF2F4]">
-              <span className="w-2 h-2 rounded-[1px] bg-[#1677B7]" />
-              <span>{t.hero.availability}</span>
+          {/* Name & Tagline */}
+          <div className="space-y-4 sm:space-y-5">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#09263B] leading-tight">
+              {t.hero.name}
+            </h1>
+            <div>
+              <div className="inline-block bg-[#102F49] border border-[#2A526A] rounded-[3px] px-4 py-2.5 sm:px-5 sm:py-3">
+                <p className="text-base sm:text-lg md:text-xl font-medium text-[#FFFFFF] leading-relaxed">
+                  {t.hero.tagline}
+                </p>
+              </div>
             </div>
-          )}
+          </div>
 
           {/* Actions */}
           <div className="pt-2 flex flex-wrap items-center gap-4">

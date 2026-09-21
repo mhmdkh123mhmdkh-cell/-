@@ -8,10 +8,9 @@ export function ContactSection() {
       <div className="editorial-shell space-y-16">
         {/* Contact Heading */}
         <div className="max-w-2xl space-y-4">
-          <div className="flex items-center gap-2">
-            <span className="w-5 h-[2px] bg-[#1677B7]" />
+          <div>
             <span className="text-xs font-bold uppercase tracking-wider text-[#09263B]">
-              03 — Direct Channel
+              03 Direct Channel
             </span>
           </div>
 

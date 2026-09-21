@@ -43,10 +43,9 @@ export function CapabilitiesSection() {
       <div className="editorial-shell space-y-12">
         {/* Section Header */}
         <div className="space-y-3 pb-6 border-b border-[#2A526A]">
-          <div className="flex items-center gap-2">
-            <span className="w-5 h-[2px] bg-[#1677B7]" />
+          <div>
             <span className="text-xs font-bold uppercase tracking-wider text-[#09263B]">
-              01 — Overview
+              01 Overview
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#09263B]">

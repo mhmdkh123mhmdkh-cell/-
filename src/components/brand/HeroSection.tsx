@@ -21,15 +21,19 @@ export function HeroSection() {
           </h1>
 
           {/* Support Text */}
-          <p className="text-lg sm:text-xl text-[#09263B]/85 leading-relaxed max-w-2xl font-normal">
-            {t.hero.support}
-          </p>
+          {t.hero.support && (
+            <p className="text-lg sm:text-xl text-[#09263B]/85 leading-relaxed max-w-2xl font-normal">
+              {t.hero.support}
+            </p>
+          )}
 
           {/* Availability Badge */}
-          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-[3px] bg-[#102F49] border border-[#2A526A] text-xs sm:text-sm font-medium text-[#EAF2F4]">
-            <span className="w-2 h-2 rounded-[1px] bg-[#1677B7]" />
-            <span>{t.hero.availability}</span>
-          </div>
+          {t.hero.availability && (
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-[3px] bg-[#102F49] border border-[#2A526A] text-xs sm:text-sm font-medium text-[#EAF2F4]">
+              <span className="w-2 h-2 rounded-[1px] bg-[#1677B7]" />
+              <span>{t.hero.availability}</span>
+            </div>
+          )}
 
           {/* Actions */}
           <div className="pt-2 flex flex-wrap items-center gap-4">

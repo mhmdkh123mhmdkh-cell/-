@@ -23,7 +23,9 @@ export function ContactSection() {
 
           <div className="pt-2">
             <a
-              href="mailto:mohammadalkhayouti@gmail.com"
+              href={t.contact.whatsapp.url}
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-3 px-8 py-4 bg-[#1677B7] hover:bg-[#1677B7]/90 text-[#FFFFFF] rounded-[3px] text-base font-bold transition-all duration-200 border border-[#1677B7]"
             >
               <span>{t.contact.mainAction}</span>

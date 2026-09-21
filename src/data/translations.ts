@@ -77,8 +77,8 @@ export const content: Record<Language, Translations> = {
     },
     hero: {
       headline: "Let me show you\nwhat I can do.",
-      support: "I write, research, prepare content, handle customers, and manage print operations.",
-      availability: "Looking for work Online or Offline in Damascus.",
+      support: "",
+      availability: "",
       primaryCta: "What can I offer?",
       secondaryCta: "Contact me",
     },
@@ -152,7 +152,7 @@ export const content: Record<Language, Translations> = {
     },
     contact: {
       title: "Let's talk.",
-      subtitle: "Looking for work Online or Offline in Damascus.",
+      subtitle: "Available for work Online or Offline in Damascus.",
       mainAction: "Contact me",
       whatsapp: {
         label: "Chat on WhatsApp",
@@ -185,8 +185,8 @@ export const content: Record<Language, Translations> = {
     },
     hero: {
       headline: "دعني أريك\nما أستطيع فعله.",
-      support: "أكتب، أبحث، أجهّز المحتوى، أتعامل مع الزبائن، وأجيد أعمال الطباعة.",
-      availability: "أبحث عن عمل Online أو Offline في دمشق.",
+      support: "",
+      availability: "",
       primaryCta: "ماذا أستطيع أن أقدّم؟",
       secondaryCta: "تواصل معي",
     },
@@ -258,7 +258,7 @@ export const content: Record<Language, Translations> = {
     },
     contact: {
       title: "لنتحدث.",
-      subtitle: "أبحث عن عمل Online أو Offline في دمشق.",
+      subtitle: "متاح للعمل Online أو Offline في دمشق.",
       mainAction: "تواصل معي",
       whatsapp: {
         label: "تواصل عبر WhatsApp",

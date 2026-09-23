@@ -29,7 +29,7 @@ export interface Translations {
   capabilities: {
     title: string;
     items: {
-      number: string;
+      number?: string;
       smallLabel?: string;
       title: string;
       description: string;
@@ -97,7 +97,7 @@ export const content: Record<Language, Translations> = {
     },
     selectedWork: {
       title: "My Work",
-      subtitle: "A structured portfolio showcase of core disciplines and upcoming case studies.",
+      subtitle: "",
       viewWorkAction: "View work",
       placeholderNotice: "Structural Placeholder",
       backAction: "Back to My Work",
@@ -106,38 +106,32 @@ export const content: Record<Language, Translations> = {
       title: "What can I offer?",
       items: [
         {
-          number: "01",
           title: "Content Writing & Research",
           description:
             "I write articles and posts in Arabic with scientific or creative precision, sourcing from reliable references, organizing information, applying SEO best practices, and preparing text for publication.",
         },
         {
-          number: "02",
           title: "Website Creation",
           description:
             "I create and publish responsive personal and business websites, shaping their structure, visual identity, and user experience from idea to live site.",
         },
         {
-          number: "03",
           smallLabel: "PUBLISHING",
           title: "Digital Publishing & Content Structure",
           description:
             "Formatting and publishing content through WordPress, organizing documents, improving article structure, and making content easier to read and access.",
         },
         {
-          number: "04",
           smallLabel: "DESIGN",
           title: "Content & Document Design",
           description: "Creating visual materials that support educational content using Canva.",
         },
         {
-          number: "05",
           title: "Printing",
           description:
             "I operate printing equipment and carry out printing and document copying based on the project requirements.",
         },
         {
-          number: "06",
           title: "Customer Service",
           description:
             "I understand customer requests and deliver services and products professionally.",
@@ -171,7 +165,7 @@ export const content: Record<Language, Translations> = {
       text: "I am Mohammad Alkhayouti, a medical student.",
     },
     contact: {
-      title: "Let's talk.",
+      title: "Let's talk",
       subtitle: "Available for work Online or Offline in Damascus.",
       mainAction: "Contact me",
       whatsapp: {
@@ -215,7 +209,7 @@ export const content: Record<Language, Translations> = {
     },
     selectedWork: {
       title: "أعمالي",
-      subtitle: "نماذج هيكلية تمهيدية لمشاريع قادمة تغطي مجالات التخصص الأساسية.",
+      subtitle: "",
       viewWorkAction: "عرض العمل",
       placeholderNotice: "نموذج تمهيدي",
       backAction: "العودة إلى أعمالي",
@@ -224,38 +218,32 @@ export const content: Record<Language, Translations> = {
       title: "ماذا أستطيع أن أقدّم؟",
       items: [
         {
-          number: "01",
           title: "كتابة المحتوى والبحث",
           description:
             "أكتب المقالات والمنشورات بالعربية، بصياغة علمية أو إبداعية، بعد البحث في مصادر موثوقة وتنظيم المعلومات، مع مراعاة قواعد تحسين الظهور في محركات البحث SEO وتجهيز النص للنشر.",
         },
         {
-          number: "02",
           title: "إنشاء المواقع",
           description:
             "إنشاء ونشر مواقع شخصية وتجارية متجاوبة، من بناء هيكل الموقع وهويته البصرية إلى تنظيم المحتوى وتجهيز الموقع للنشر.",
         },
         {
-          number: "03",
           smallLabel: "النشر الرقمي",
           title: "النشر الرقمي وبنية المحتوى",
           description:
             "تنسيق المحتوى ونشره عبر WordPress، وتنظيم المستندات، وتحسين بنية المقالات، وجعل المحتوى أسهل في القراءة والوصول.",
         },
         {
-          number: "04",
           smallLabel: "التصميم",
           title: "تصميم المحتوى والوثائق",
           description: "إنشاء مواد بصرية مساندة للمحتوى التعليمي باستخدام Canva.",
         },
         {
-          number: "05",
           title: "الطباعة",
           description:
             "أتعامل مع ماكينات الطباعة وأنفّذ أعمال الطباعة وتصوير المستندات بحسب طبيعة الطلب.",
         },
         {
-          number: "06",
           title: "التعامل مع الزبائن",
           description: "أفهم طلبات الزبائن وأقدّم لهم الخدمة والمنتج بطريقة مهنية.",
         },
@@ -287,7 +275,7 @@ export const content: Record<Language, Translations> = {
       text: "أنا محمد الخيوتي طالب طب.",
     },
     contact: {
-      title: "لنتحدث.",
+      title: "لنتحدث",
       subtitle: "متاح للعمل Online أو Offline في دمشق.",
       mainAction: "تواصل معي",
       whatsapp: {

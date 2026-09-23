@@ -13,11 +13,54 @@ export interface ArticleSection {
   isCallout?: boolean;
 }
 
+export interface CaseStudyDeliverable {
+  en: string;
+  ar: string;
+}
+
+export interface CaseStudyContent {
+  intro: {
+    en: string;
+    ar: string;
+  };
+  sections: {
+    concept: {
+      heading: { en: string; ar: string };
+      text: { en: string; ar: string };
+    };
+    role: {
+      heading: { en: string; ar: string };
+      text: { en: string; ar: string };
+    };
+    deliverables: {
+      heading: { en: string; ar: string };
+      items: CaseStudyDeliverable[];
+    };
+    techStack?: {
+      heading: { en: string; ar: string };
+      items: string[];
+    };
+    result?: {
+      heading: { en: string; ar: string };
+      text: { en: string; ar: string };
+    };
+  };
+  liveUrl?: string;
+  liveUrlLabel?: {
+    en: string;
+    ar: string;
+  };
+}
+
 export interface PortfolioProject {
   id: string;
   slug: string;
   category: ProjectCategory;
   categoryLabel: {
+    en: string;
+    ar: string;
+  };
+  currentSiteBadge?: {
     en: string;
     ar: string;
   };
@@ -77,7 +120,15 @@ export interface PortfolioProject {
       ar: string;
     };
   };
+  coverImage?: {
+    src: string;
+    alt: {
+      en: string;
+      ar: string;
+    };
+  };
   isPlaceholder?: boolean;
+  caseStudy?: CaseStudyContent;
 }
 
 export const portfolioProjects: PortfolioProject[] = [
@@ -87,7 +138,7 @@ export const portfolioProjects: PortfolioProject[] = [
     category: "writing",
     categoryLabel: {
       en: "Writing",
-      ar: "كتابة ومحتوى",
+      ar: "كتابة محتوى",
     },
     title: {
       en: "5 Content Marketing Strategies for Your Business Without Ads",
@@ -96,6 +147,13 @@ export const portfolioProjects: PortfolioProject[] = [
     shortDescription: {
       en: "A strategic breakdown of how to build an organic content marketing system based on customer questions and compounding assets without relying on paid advertising.",
       ar: "دليل عملي لبناء نظام تسويق بالمحتوى يربط بين أسئلة الجمهور وأصول المحتوى وتوزيعها، دون الاعتماد المستمر على الإعلانات.",
+    },
+    coverImage: {
+      src: "/images/content-marketing.jpg",
+      alt: {
+        ar: "مقال عن استراتيجيات التسويق بالمحتوى",
+        en: "Article on content marketing strategies",
+      },
     },
     coverPlaceholder: {
       badge: {
@@ -128,7 +186,6 @@ export const portfolioProjects: PortfolioProject[] = [
       },
       sections: [
         {
-          number: "01",
           heading: {
             ar: "ابن خطة محتوى من عميلك",
             en: "Build a Content Plan Around Your Customer",
@@ -145,7 +202,6 @@ export const portfolioProjects: PortfolioProject[] = [
           },
         },
         {
-          number: "02",
           heading: {
             ar: "لا تكتب لأجل البيع فقط",
             en: "Don't Write Solely to Sell",
@@ -160,7 +216,6 @@ export const portfolioProjects: PortfolioProject[] = [
           },
         },
         {
-          number: "03",
           heading: {
             ar: "لا تحاول أن تكون موجوداً في كل مكان",
             en: "Don't Try to Be Everywhere",
@@ -177,7 +232,6 @@ export const portfolioProjects: PortfolioProject[] = [
           },
         },
         {
-          number: "04",
           heading: {
             ar: "وسّع وصول محتواك عبر محرك البحث والمجتمعات",
             en: "Expand Reach via Search Engines and Communities",
@@ -196,7 +250,6 @@ export const portfolioProjects: PortfolioProject[] = [
           },
         },
         {
-          number: "05",
           heading: {
             ar: "قِس نتائج المحتوى وطوّر ما ينجح",
             en: "Measure Content Outcomes and Scale What Works",
@@ -244,6 +297,141 @@ export const portfolioProjects: PortfolioProject[] = [
             "Start today: gather ten recurring questions from your clients, pick just one, and turn it into content. This simple step can be the foundation of a complete system that helps your business reach its audience without perpetual dependency on ads.",
           ],
         },
+      },
+    },
+  },
+  {
+    id: "item-personal-website",
+    slug: "personal-website",
+    category: "website",
+    categoryLabel: {
+      en: "Design & Development",
+      ar: "تصميم وتطوير",
+    },
+    currentSiteBadge: {
+      en: "This website.",
+      ar: "هذا الموقع.",
+    },
+    title: {
+      en: "Personal Website Design & Development",
+      ar: "تصميم وتطوير موقع شخصي احترافي",
+    },
+    shortDescription: {
+      en: "A personal website I designed, developed, and deployed to present my services, experience, and work through a clear responsive experience.",
+      ar: "موقع شخصي أنشأته من الفكرة إلى التصميم والتطوير والنشر، لعرض خدماتي وخبراتي وأعمالي بطريقة واضحة ومتجاوبة على مختلف الأجهزة.",
+    },
+    coverImage: {
+      src: "/images/personal-website.jpg",
+      alt: {
+        ar: "صورة من موقع محمد الخيوتي الشخصي",
+        en: "Screenshot of Mohammad Alkhayouti's personal website",
+      },
+    },
+    coverPlaceholder: {
+      badge: {
+        en: "Live Website",
+        ar: "موقع مباشر",
+      },
+      pattern: "code",
+    },
+    seo: {
+      title: {
+        en: "Personal Website Design & Development — Mohammad Alkhayouti",
+        ar: "تصميم وتطوير موقع شخصي احترافي — محمد الخيوتي",
+      },
+      description: {
+        en: "A personal website I designed, developed, and deployed to present my services, experience, and work through a clear responsive experience.",
+        ar: "موقع شخصي أنشأته من الفكرة إلى التصميم والتطوير والنشر، لعرض خدماتي وخبراتي وأعمالي بطريقة واضحة ومتجاوبة على مختلف الأجهزة.",
+      },
+    },
+    isPlaceholder: false,
+    caseStudy: {
+      intro: {
+        ar: "موقع شخصي أنشأته من الفكرة إلى التصميم والتطوير والنشر، لعرض خدماتي وخبراتي وأعمالي بطريقة واضحة ومتجاوبة.",
+        en: "A personal website I designed, developed, and deployed to present my services, experience, and work through a clear responsive experience.",
+      },
+      sections: {
+        concept: {
+          heading: {
+            ar: "فكرة المشروع",
+            en: "Project Concept",
+          },
+          text: {
+            ar: "أنشأت هذا الموقع ليكون مساحة مهنية أقدّم من خلالها خدماتي وخبراتي وأعمالي، بدل الاعتماد على سيرة ذاتية تقليدية فقط. كان الهدف هو تحويل المعلومات الشخصية والمهنية إلى تجربة رقمية واضحة وسهلة التصفح.",
+            en: "I created this website as a professional space to present my services, experience, and work instead of relying only on a traditional résumé. The goal was to turn personal and professional information into a clear and easy-to-navigate digital experience.",
+          },
+        },
+        role: {
+          heading: {
+            ar: "دوري في المشروع",
+            en: "My Role",
+          },
+          text: {
+            ar: "قمت بتطوير المشروع من الفكرة الأولية إلى التصميم والتنفيذ، وتنظيم المحتوى، وإضافة النسختين العربية والإنجليزية، وتحسين تجربة الاستخدام على الهاتف والكمبيوتر، ثم رفع الموقع على الاستضافة.",
+            en: "I developed the project from the initial concept through design and implementation, organized the content, added Arabic and English versions, improved the experience for mobile and desktop users, and deployed the website to hosting.",
+          },
+        },
+        deliverables: {
+          heading: {
+            ar: "ما الذي تم تنفيذه؟",
+            en: "What Was Implemented?",
+          },
+          items: [
+            {
+              ar: "التخطيط العام للموقع.",
+              en: "Overall site planning and structure.",
+            },
+            {
+              ar: "تنظيم الأقسام والمحتوى.",
+              en: "Content hierarchy and section organization.",
+            },
+            {
+              ar: "تصميم الهوية البصرية العامة.",
+              en: "Visual identity and editorial aesthetic design.",
+            },
+            {
+              ar: "إنشاء واجهة متجاوبة.",
+              en: "Fully responsive multi-device user interface.",
+            },
+            {
+              ar: "دعم اللغتين العربية والإنجليزية.",
+              en: "Bilingual support for Arabic and English.",
+            },
+            {
+              ar: "دعم اتجاه RTL للعربية.",
+              en: "Native RTL layout direction and Arabic typography.",
+            },
+            {
+              ar: "تحسين تجربة القراءة والتنقل.",
+              en: "Optimized readability and intuitive navigation.",
+            },
+            {
+              ar: "إنشاء قسم الأعمال.",
+              en: "Structured portfolio and selected work showcase.",
+            },
+            {
+              ar: "إنشاء صفحات دراسات الحالة.",
+              en: "Dedicated in-depth case study architecture.",
+            },
+            {
+              ar: "رفع الموقع ونشره على Netlify.",
+              en: "Production build and deployment on Netlify.",
+            },
+            {
+              ar: "ربط المشروع بمستودع GitHub.",
+              en: "Git version control and GitHub repository setup.",
+            },
+            {
+              ar: "اختبار الموقع على الهاتف والكمبيوتر.",
+              en: "Rigorous cross-platform testing on mobile and desktop.",
+            },
+          ],
+        },
+      },
+      liveUrl: "https://wa.me/963981434844",
+      liveUrlLabel: {
+        ar: "اطلب الخدمة →",
+        en: "Request a service →",
       },
     },
   },

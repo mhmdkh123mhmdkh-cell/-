@@ -8,12 +8,6 @@ export function ContactSection() {
       <div className="editorial-shell space-y-16">
         {/* Contact Heading */}
         <div className="max-w-2xl space-y-4">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-[#09263B]">
-              03 Direct Channel
-            </span>
-          </div>
-
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#09263B]">
             {t.contact.title}
           </h2>

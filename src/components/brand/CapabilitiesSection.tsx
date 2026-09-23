@@ -6,13 +6,12 @@ export function CapabilitiesSection() {
   const renderCard = (item: (typeof t.capabilities.items)[0]) => {
     return (
       <div
-        key={item.number}
+        key={item.title}
         className="editorial-card bg-[#102F49] border border-[#2A526A] p-8 sm:p-9 flex flex-col justify-start group hover:border-[#1677B7] h-full"
       >
-        {/* Top header: Number in #1677B7 and small label if present */}
+        {/* Top header: small label if present and corner accent */}
         <div className="flex items-center justify-between pb-4 border-b border-[#2A526A]">
-          <div className="flex items-center gap-3">
-            <span className="font-mono text-sm font-bold text-[#1677B7]">{item.number}</span>
+          <div>
             {item.smallLabel && (
               <span className="text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-[2px] bg-[#1677B7]/20 text-[#1677B7] border border-[#1677B7]/40">
                 {item.smallLabel}
@@ -43,11 +42,6 @@ export function CapabilitiesSection() {
       <div className="editorial-shell space-y-12">
         {/* Section Header */}
         <div className="space-y-3 pb-6 border-b border-[#2A526A]">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-[#09263B]">
-              01 Overview
-            </span>
-          </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#09263B]">
             {t.capabilities.title}
           </h2>

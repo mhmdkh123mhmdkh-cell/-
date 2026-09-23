@@ -14,7 +14,7 @@ export function HeroSection() {
             </h1>
             <div>
               <div className="inline-block bg-[#102F49] border border-[#2A526A] rounded-[3px] px-4 py-2.5 sm:px-5 sm:py-3">
-                <p className="text-base sm:text-lg md:text-xl font-medium text-[#FFFFFF] leading-relaxed">
+                <p className="text-base sm:text-lg md:text-xl font-medium text-[#D6E6EC] leading-relaxed">
                   {t.hero.tagline}
                 </p>
               </div>

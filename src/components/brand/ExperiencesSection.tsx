@@ -34,11 +34,11 @@ export function ExperiencesSection() {
 
               {/* Title & Description with balanced vertical spacing */}
               <div className="pt-5 space-y-3">
-                <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#FFFFFF] leading-snug">
+                <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#D6E6EC] leading-snug">
                   {item.title}
                 </h3>
 
-                <p className="text-sm sm:text-base text-[#EAF2F4] leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-[#D6E6EC] leading-relaxed font-normal">
                   {item.description}
                 </p>
               </div>

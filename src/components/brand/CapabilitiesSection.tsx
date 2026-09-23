@@ -24,13 +24,13 @@ export function CapabilitiesSection() {
 
         {/* Card Content: Title and Description with balanced spacing */}
         <div className="pt-5 space-y-3">
-          {/* Title in #FFFFFF */}
-          <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#FFFFFF] leading-snug">
+          {/* Title in #D6E6EC */}
+          <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#D6E6EC] leading-snug">
             {item.title}
           </h3>
 
-          {/* Description in #EAF2F4 */}
-          <p className="text-sm sm:text-base text-[#EAF2F4] leading-relaxed font-normal">
+          {/* Description in #D6E6EC */}
+          <p className="text-sm sm:text-base text-[#D6E6EC] leading-relaxed font-normal">
             {item.description}
           </p>
         </div>

@@ -4,6 +4,7 @@ export interface Translations {
   nav: {
     name: string;
     capabilities: string;
+    selectedWork: string;
     experiences: string;
     about: string;
     contact: string;
@@ -17,6 +18,13 @@ export interface Translations {
     availability?: string;
     primaryCta: string;
     secondaryCta: string;
+  };
+  selectedWork: {
+    title: string;
+    subtitle: string;
+    viewWorkAction: string;
+    placeholderNotice: string;
+    backAction: string;
   };
   capabilities: {
     title: string;
@@ -72,6 +80,7 @@ export const content: Record<Language, Translations> = {
     nav: {
       name: "Mohammad Alkhayouti",
       capabilities: "Capabilities",
+      selectedWork: "My Work",
       experiences: "Experiences",
       about: "About",
       contact: "Contact",
@@ -85,6 +94,13 @@ export const content: Record<Language, Translations> = {
       availability: "",
       primaryCta: "What can I offer?",
       secondaryCta: "Contact me",
+    },
+    selectedWork: {
+      title: "My Work",
+      subtitle: "A structured portfolio showcase of core disciplines and upcoming case studies.",
+      viewWorkAction: "View work",
+      placeholderNotice: "Structural Placeholder",
+      backAction: "Back to My Work",
     },
     capabilities: {
       title: "What can I offer?",
@@ -182,6 +198,7 @@ export const content: Record<Language, Translations> = {
     nav: {
       name: "محمد الخيوتي",
       capabilities: "ما أقدّمه",
+      selectedWork: "أعمالي",
       experiences: "تجارب",
       about: "عنّي",
       contact: "تواصل معي",
@@ -195,6 +212,13 @@ export const content: Record<Language, Translations> = {
       availability: "",
       primaryCta: "ماذا أستطيع أن أقدّم؟",
       secondaryCta: "تواصل معي",
+    },
+    selectedWork: {
+      title: "أعمالي",
+      subtitle: "نماذج هيكلية تمهيدية لمشاريع قادمة تغطي مجالات التخصص الأساسية.",
+      viewWorkAction: "عرض العمل",
+      placeholderNotice: "نموذج تمهيدي",
+      backAction: "العودة إلى أعمالي",
     },
     capabilities: {
       title: "ماذا أستطيع أن أقدّم؟",

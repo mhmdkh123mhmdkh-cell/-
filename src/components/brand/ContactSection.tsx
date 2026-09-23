@@ -60,15 +60,15 @@ export function ContactSection() {
                 <span className="text-xs uppercase font-bold tracking-wider text-[#1677B7]">
                   WhatsApp
                 </span>
-                <span className="w-2 h-2 rounded-[1px] bg-[#FFFFFF]" />
+                <span className="w-2 h-2 rounded-[1px] bg-[#D6E6EC]" />
               </div>
-              <p className="text-xl font-bold text-[#FFFFFF] font-mono" dir="ltr">
+              <p className="text-xl font-bold text-[#D6E6EC] font-mono" dir="ltr">
                 {t.contact.whatsapp.number}
               </p>
             </div>
-            <div className="pt-6 mt-4 border-t border-[#2A526A] flex items-center justify-between text-sm font-semibold text-[#EAF2F4] group-hover:text-[#FFFFFF]">
+            <div className="pt-6 mt-4 border-t border-[#2A526A] flex items-center justify-between text-sm font-semibold text-[#D6E6EC] group-hover:text-[#D6E6EC]">
               <span>{t.contact.whatsapp.label}</span>
-              <span className="rtl:rotate-180 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1 text-[#1677B7] group-hover:text-[#FFFFFF]">
+              <span className="rtl:rotate-180 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1 text-[#1677B7] group-hover:text-[#D6E6EC]">
                 →
               </span>
             </div>
@@ -86,13 +86,13 @@ export function ContactSection() {
                 <span className="text-xs uppercase font-bold tracking-wider text-[#1677B7]">
                   LinkedIn
                 </span>
-                <span className="w-2 h-2 rounded-[1px] bg-[#FFFFFF]" />
+                <span className="w-2 h-2 rounded-[1px] bg-[#D6E6EC]" />
               </div>
-              <p className="text-lg font-bold text-[#FFFFFF]">Mohammad Alkhayouti</p>
+              <p className="text-lg font-bold text-[#D6E6EC]">Mohammad Alkhayouti</p>
             </div>
-            <div className="pt-6 mt-4 border-t border-[#2A526A] flex items-center justify-between text-sm font-semibold text-[#EAF2F4] group-hover:text-[#FFFFFF]">
+            <div className="pt-6 mt-4 border-t border-[#2A526A] flex items-center justify-between text-sm font-semibold text-[#D6E6EC] group-hover:text-[#D6E6EC]">
               <span>{t.contact.linkedin.label}</span>
-              <span className="rtl:rotate-180 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1 text-[#1677B7] group-hover:text-[#FFFFFF]">
+              <span className="rtl:rotate-180 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1 text-[#1677B7] group-hover:text-[#D6E6EC]">
                 →
               </span>
             </div>
@@ -108,15 +108,15 @@ export function ContactSection() {
                 <span className="text-xs uppercase font-bold tracking-wider text-[#1677B7]">
                   Email
                 </span>
-                <span className="w-2 h-2 rounded-[1px] bg-[#FFFFFF]" />
+                <span className="w-2 h-2 rounded-[1px] bg-[#D6E6EC]" />
               </div>
-              <p className="text-base font-bold text-[#FFFFFF] break-all">
+              <p className="text-base font-bold text-[#D6E6EC] break-all">
                 {t.contact.email.address}
               </p>
             </div>
-            <div className="pt-6 mt-4 border-t border-[#2A526A] flex items-center justify-between text-sm font-semibold text-[#EAF2F4] group-hover:text-[#FFFFFF]">
+            <div className="pt-6 mt-4 border-t border-[#2A526A] flex items-center justify-between text-sm font-semibold text-[#D6E6EC] group-hover:text-[#D6E6EC]">
               <span>{t.contact.email.label}</span>
-              <span className="rtl:rotate-180 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1 text-[#1677B7] group-hover:text-[#FFFFFF]">
+              <span className="rtl:rotate-180 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1 text-[#1677B7] group-hover:text-[#D6E6EC]">
                 →
               </span>
             </div>

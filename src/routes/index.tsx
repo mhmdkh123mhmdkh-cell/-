@@ -3,6 +3,7 @@ import { LanguageProvider } from "@/context/LanguageContext";
 import { Navbar } from "@/components/brand/Navbar";
 import { HeroSection } from "@/components/brand/HeroSection";
 import { CapabilitiesSection } from "@/components/brand/CapabilitiesSection";
+import { SelectedWorkSection } from "@/components/brand/SelectedWorkSection";
 import { ExperiencesSection } from "@/components/brand/ExperiencesSection";
 import { WritingStatementSection } from "@/components/brand/WritingStatementSection";
 import { AboutSection } from "@/components/brand/AboutSection";
@@ -41,6 +42,7 @@ function Index() {
         <main>
           <HeroSection />
           <CapabilitiesSection />
+          <SelectedWorkSection />
           <ExperiencesSection />
           <WritingStatementSection />
           <AboutSection />

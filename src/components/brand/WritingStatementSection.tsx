@@ -12,7 +12,7 @@ export function WritingStatementSection() {
             {t.writing.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-3.5 py-1.5 rounded-[2px] bg-[#102F49] border border-[#2A526A] text-xs sm:text-sm font-medium text-[#EAF2F4]"
+                className="px-3.5 py-1.5 rounded-[2px] bg-[#102F49] border border-[#2A526A] text-xs sm:text-sm font-medium text-[#D6E6EC]"
               >
                 {tag}
               </span>
@@ -20,7 +20,7 @@ export function WritingStatementSection() {
           </div>
 
           {/* Statement */}
-          <p className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#FFFFFF] tracking-tight max-w-3xl mx-auto leading-snug">
+          <p className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#D6E6EC] tracking-tight max-w-3xl mx-auto leading-snug">
             "{t.writing.statement}"
           </p>
 

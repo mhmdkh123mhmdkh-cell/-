@@ -123,14 +123,14 @@
  * Background: #102F49
  * Border: #2A526A
  * Corners: 2-4px (3px standard)
- * Text: #EAF2F4 / #FFFFFF
+ * Text: #D6E6EC
  * Interactive states: subtle border color change and elevation on hover, compression on active/click.
  */
 .editorial-card {
   background-color: #102f49;
   border: 1px solid #2a526a;
   border-radius: 3px;
-  color: #eaf2f4;
+  color: #d6e6ec;
   cursor: default;
   user-select: none;
   transition:

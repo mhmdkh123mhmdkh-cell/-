@@ -15,10 +15,11 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { href: "#capabilities", label: t.nav.capabilities },
-    { href: "#experiences", label: t.nav.experiences },
-    { href: "#about", label: t.nav.about },
-    { href: "#contact", label: t.nav.contact },
+    { href: "/#capabilities", label: t.nav.capabilities },
+    { href: "/#work", label: t.nav.selectedWork },
+    { href: "/#experiences", label: t.nav.experiences },
+    { href: "/#about", label: t.nav.about },
+    { href: "/#contact", label: t.nav.contact },
   ];
 
   return (
@@ -32,7 +33,7 @@ export function Navbar() {
       <div className="editorial-shell flex items-center justify-between">
         {/* Brand identity */}
         <a
-          href="#"
+          href="/"
           className="group flex items-center gap-2.5 text-decoration-none focus:outline-hidden"
         >
           <span className="w-2.5 h-2.5 rounded-[2px] bg-[#1677B7] group-hover:bg-[#FFFFFF] transition-colors" />
@@ -89,7 +90,7 @@ export function Navbar() {
 
           {/* Desktop primary talk CTA */}
           <a
-            href="#contact"
+            href="/#contact"
             className="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-[#FFFFFF] bg-[#1677B7] hover:bg-[#1677B7]/90 rounded-[3px] transition-colors border border-[#1677B7]"
           >
             {t.nav.talkCta}
@@ -140,7 +141,7 @@ export function Navbar() {
             ))}
             <div className="pt-3 border-t border-[#2A526A]">
               <a
-                href="#contact"
+                href="/#contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className="inline-flex w-full items-center justify-center px-4 py-2.5 text-sm font-semibold text-[#FFFFFF] bg-[#1677B7] hover:bg-[#1677B7]/90 rounded-[3px] transition-colors"
               >

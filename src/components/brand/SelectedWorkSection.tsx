@@ -73,7 +73,11 @@ export function SelectedWorkSection() {
                       {project.categoryLabel[lang]}
                     </span>
                     <span className="text-[10px] font-mono tracking-widest text-[#D6E6EC]/60 uppercase">
-                      {t.selectedWork.placeholderNotice}
+                      {project.isPlaceholder
+                        ? t.selectedWork.placeholderNotice
+                        : lang === "ar"
+                          ? "مقال"
+                          : "Article"}
                     </span>
                   </div>
 

@@ -1,15 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { LanguageProvider, useLanguage } from "@/context/LanguageContext";
 import { Navbar } from "@/components/brand/Navbar";
-import { portfolioProjects } from "@/data/portfolio";
+import { portfolioProjects, type PortfolioProject } from "@/data/portfolio";
 
 export const Route = createFileRoute("/work/$slug")({
   head: ({ params }) => {
     const project = portfolioProjects.find((p) => p.slug === params.slug);
     const title = project
-      ? `${project.title.en} — Mohammad Alkhayouti`
+      ? `${project.title.ar} | ${project.title.en} — Mohammad Alkhayouti`
       : "Project — Mohammad Alkhayouti";
-    const description = project ? project.seo.description.en : "Portfolio project placeholder.";
+    const description = project
+      ? project.seo.description.ar
+      : "Portfolio project — Mohammad Alkhayouti";
 
     return {
       meta: [
@@ -45,12 +47,12 @@ function ProjectDetailContent() {
         <Navbar />
         <main className="editorial-shell pt-36 pb-20 text-center space-y-6">
           <h1 className="text-3xl font-extrabold text-[#09263B]">
-            {lang === "ar" ? "المشروع غير موجود" : "Project Not Found"}
+            {lang === "ar" ? "العمل غير موجود" : "Project Not Found"}
           </h1>
           <p className="text-[#09263B]/80 text-base">
             {lang === "ar"
-              ? "لم يتم العثور على نموذج العمل المطلوب."
-              : "The requested project specimen does not exist."}
+              ? "لم يتم العثور على صفحة العمل المطلوبة."
+              : "The requested project page does not exist."}
           </p>
           <div className="pt-4">
             <Link
@@ -65,6 +67,161 @@ function ProjectDetailContent() {
       </div>
     );
   }
+
+  // If the project has full structured article content (Writing projects)
+  if (project.article) {
+    return <ArticleProjectView project={project} />;
+  }
+
+  // Fallback for structural placeholder projects (Website, Design, Digital Project)
+  return <PlaceholderProjectView project={project} />;
+}
+
+/**
+ * Dedicated, full-length presentation view for writing portfolio pieces
+ */
+function ArticleProjectView({ project }: { project: PortfolioProject }) {
+  const { lang, t } = useLanguage();
+  const article = project.article!;
+
+  return (
+    <div className="min-h-screen bg-[#C7DDE8] text-[#09263B] selection:bg-[#1677B7] selection:text-[#FFFFFF] transition-colors duration-200">
+      <Navbar />
+
+      <main className="editorial-shell pt-32 pb-24 md:pt-40 md:pb-32 space-y-10">
+        {/* Navigation Breadcrumb / Back link */}
+        <div className="pb-4 border-b border-[#2A526A]/40 flex items-center justify-between">
+          <Link
+            to="/"
+            hash="work"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#09263B] hover:text-[#1677B7] transition-colors"
+          >
+            <span className="rtl:rotate-180">←</span>
+            <span>{t.selectedWork.backAction}</span>
+          </Link>
+
+          <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-[2px] bg-[#102F49] text-[#D6E6EC] border border-[#2A526A]">
+            {project.categoryLabel[lang]}
+          </span>
+        </div>
+
+        {/* Article Container (Navy Card matching the website's design language) */}
+        <article className="editorial-card bg-[#102F49] border border-[#2A526A] rounded-[3px] p-6 sm:p-10 md:p-14 lg:p-16 space-y-12 max-w-4xl mx-auto shadow-sm">
+          {/* Article Header */}
+          <header className="space-y-6 pb-8 border-b border-[#2A526A]">
+            <div className="flex flex-wrap items-center gap-2.5">
+              <span className="w-3 h-3 rounded-[1px] bg-[#1677B7]" />
+              <span className="text-xs font-mono font-bold tracking-widest uppercase text-[#1677B7]">
+                {project.categoryLabel[lang]}
+              </span>
+            </div>
+
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#FFFFFF] leading-tight sm:leading-snug">
+              {project.title[lang]}
+            </h1>
+
+            {/* Introductory lead paragraphs */}
+            <div className="space-y-4 pt-2 text-[#D6E6EC] text-base sm:text-lg leading-relaxed sm:leading-loose">
+              {article.intro[lang].map((para, idx) => (
+                <p key={idx} className="font-normal">
+                  {para}
+                </p>
+              ))}
+            </div>
+          </header>
+
+          {/* Article Sections (The Core Points) */}
+          <div className="space-y-12 text-[#D6E6EC]">
+            {article.sections.map((section, idx) => (
+              <section key={idx} className="space-y-4">
+                <div className="flex items-baseline gap-3 pb-2 border-b border-[#2A526A]/60">
+                  {section.number && (
+                    <span className="text-sm sm:text-base font-mono font-bold text-[#1677B7] shrink-0">
+                      {section.number}
+                    </span>
+                  )}
+                  {section.heading && (
+                    <h2 className="text-xl sm:text-2xl font-bold text-[#FFFFFF] tracking-tight">
+                      {section.heading[lang]}
+                    </h2>
+                  )}
+                </div>
+
+                <div className="space-y-4 pt-1">
+                  {section.paragraphs[lang].map((para, pIdx) => (
+                    <p
+                      key={pIdx}
+                      className="text-base sm:text-lg leading-relaxed sm:leading-loose text-[#D6E6EC]"
+                    >
+                      {para}
+                    </p>
+                  ))}
+                </div>
+              </section>
+            ))}
+
+            {/* Callout Question Section */}
+            {article.callout && (
+              <aside className="bg-[#0B2135] border-l-4 rtl:border-l-0 rtl:border-r-4 border-[#1677B7] p-6 sm:p-8 rounded-[2px] space-y-3">
+                <h3 className="text-lg sm:text-xl font-bold text-[#FFFFFF]">
+                  {article.callout.heading[lang]}
+                </h3>
+                <div className="space-y-3 text-base sm:text-lg leading-relaxed sm:leading-loose text-[#D6E6EC]">
+                  {article.callout.paragraphs[lang].map((para, cIdx) => (
+                    <p key={cIdx}>{para}</p>
+                  ))}
+                </div>
+              </aside>
+            )}
+
+            {/* Conclusion Section */}
+            {article.conclusion && (
+              <section className="space-y-4 pt-4 border-t border-[#2A526A]">
+                <h2 className="text-xl sm:text-2xl font-bold text-[#FFFFFF] tracking-tight">
+                  {article.conclusion.heading[lang]}
+                </h2>
+                <div className="space-y-4">
+                  {article.conclusion.paragraphs[lang].map((para, kIdx) => (
+                    <p
+                      key={kIdx}
+                      className="text-base sm:text-lg leading-relaxed sm:leading-loose text-[#D6E6EC]"
+                    >
+                      {para}
+                    </p>
+                  ))}
+                </div>
+              </section>
+            )}
+          </div>
+
+          {/* Footer Actions */}
+          <footer className="pt-8 border-t border-[#2A526A] flex flex-col sm:flex-row items-center justify-between gap-4">
+            <Link
+              to="/"
+              hash="work"
+              className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-[#D6E6EC] bg-transparent border border-[#2A526A] hover:border-[#1677B7] hover:text-[#FFFFFF] rounded-[3px] transition-colors"
+            >
+              {t.selectedWork.backAction}
+            </Link>
+
+            <a
+              href="/#contact"
+              className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-[#FFFFFF] bg-[#1677B7] hover:bg-[#1677B7]/90 rounded-[3px] transition-colors border border-[#1677B7]"
+            >
+              {t.nav.talkCta}
+            </a>
+          </footer>
+        </article>
+      </main>
+    </div>
+  );
+}
+
+/**
+ * Structural presentation view for projects that are still placeholders
+ */
+function PlaceholderProjectView({ project }: { project: PortfolioProject }) {
+  const { lang, t } = useLanguage();
 
   return (
     <div className="min-h-screen bg-[#C7DDE8] text-[#09263B] selection:bg-[#1677B7] selection:text-[#FFFFFF] transition-colors duration-200">

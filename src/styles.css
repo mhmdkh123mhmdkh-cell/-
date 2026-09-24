@@ -176,3 +176,173 @@ button {
     transform: none !important;
   }
 }
+
+/* ==========================================================================
+   Dedicated Article / Content Writing Page Styles
+   Only scoped to .article-page to keep all other pages completely unaffected
+   ========================================================================== */
+html:has(.article-page),
+body:has(.article-page) {
+  background-color: #ffffff !important;
+}
+
+.article-page {
+  width: 100%;
+  min-width: 0;
+  min-height: 100vh;
+  background-color: #ffffff !important;
+  color: #09263b;
+  overflow-x: hidden;
+}
+
+.article-page[dir="rtl"],
+.article-page.content-page {
+  direction: rtl;
+}
+
+.article-page[dir="ltr"] {
+  direction: ltr;
+}
+
+.article-page .article-layout,
+.article-page .article-container {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-inline: 0 !important;
+  padding-inline: clamp(16px, 3vw, 48px);
+  background-color: #ffffff !important;
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .article-page .article-layout,
+  .article-page .article-container {
+    padding-inline: 16px;
+  }
+}
+
+.article-page .article-content {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  margin: 0 !important;
+  background-color: #ffffff !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  line-height: 1.95;
+  box-sizing: border-box;
+}
+
+.article-page[dir="rtl"] .article-content,
+.article-page[dir="rtl"] .article-content h1,
+.article-page[dir="rtl"] .article-content h2,
+.article-page[dir="rtl"] .article-content h3,
+.article-page[dir="rtl"] .article-content p,
+.article-page[dir="rtl"] .article-content aside {
+  text-align: right;
+  direction: rtl;
+}
+
+.article-page[dir="ltr"] .article-content,
+.article-page[dir="ltr"] .article-content h1,
+.article-page[dir="ltr"] .article-content h2,
+.article-page[dir="ltr"] .article-content h3,
+.article-page[dir="ltr"] .article-content p,
+.article-page[dir="ltr"] .article-content aside {
+  text-align: left;
+  direction: ltr;
+}
+
+.article-page .article-content p {
+  width: 100%;
+  max-width: none;
+  line-height: 1.95;
+  margin-bottom: 1.25rem;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.article-page .article-content h1 {
+  width: 100%;
+  max-width: none;
+  line-height: 1.35;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.article-page .article-content h2 {
+  width: 100%;
+  max-width: none;
+  line-height: 1.4;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.article-page .article-content h3 {
+  width: 100%;
+  max-width: none;
+  line-height: 1.45;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.article-page img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.article-page .article-content aside,
+.article-page .article-content blockquote {
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+}
+
+.article-page .article-content ul,
+.article-page .article-content ol {
+  width: 100%;
+  max-width: none;
+  padding-inline-start: 1.75rem;
+  padding-inline-end: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+.article-page .article-content li {
+  margin-bottom: 0.5rem;
+  line-height: 1.9;
+}
+
+.article-page .article-content table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+}
+
+.article-page .article-content a:not([class*="bg-"]):not([class*="border"]) {
+  color: #1677b7;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.article-page .article-content a:not([class*="bg-"]):not([class*="border"]):hover {
+  color: #102f49;
+}
+
+.article-page .article-content code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  background-color: #f3f4f6;
+  color: #1f2937;
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+  direction: ltr;
+  display: inline-block;
+}

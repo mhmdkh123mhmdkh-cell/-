@@ -225,33 +225,35 @@ function CaseStudyProjectView({ project }: { project: PortfolioProject }) {
 }
 
 /**
- * Dedicated, pure-white reading canvas for writing portfolio pieces
+ * Modern Full-Width Wide-Canvas Reading Layout for writing and article portfolio pieces
  * Engineered with:
- * - Pure white #ffffff background
- * - Cairo typography with 400/500/600/700 weights
- * - Dark gray body text #374151
- * - Navy headings #102F49
- * - Comfortable reading line-height (1.85 - 1.9)
- * - Optimal line length (max-w-[740px])
- * - Responsive padding and zero horizontal scroll on mobile (320px - 430px)
+ * - Full-width presence from right to left with pure white background (no blue side margins)
+ * - width: 100%, max-width: none, margin-inline: 0
+ * - Responsive clamp padding (clamp(16px, 3vw, 48px)) with safe margins on mobile
+ * - RTL native support with right alignment for Arabic
+ * - Fluid typography with line-height ~1.95 - 2.05 for optimal Arabic reading comfort
+ * - Responsive non-distorting media scaling
  */
 function ArticleProjectView({ project }: { project: PortfolioProject }) {
   const { lang, t } = useLanguage();
   const article = project.article!;
 
   return (
-    <div className="min-h-screen bg-[#C7DDE8] text-[#09263B] selection:bg-[#1677B7] selection:text-[#FFFFFF] transition-colors duration-200 overflow-x-hidden">
+    <div
+      className="min-h-screen w-full min-w-0 bg-[#ffffff] text-[#09263B] selection:bg-[#1677B7] selection:text-[#FFFFFF] transition-colors duration-200 overflow-x-hidden article-page content-page"
+      dir={lang === "ar" ? "rtl" : "ltr"}
+    >
       <Navbar />
 
-      <main className="editorial-shell pt-28 pb-20 sm:pt-36 sm:pb-24 md:pt-40 md:pb-28 space-y-6 sm:space-y-8">
+      <main className="article-layout article-container w-full max-w-none m-0 pt-24 pb-20 sm:pt-32 sm:pb-24 md:pt-36 md:pb-28 space-y-8 bg-[#ffffff] box-border">
         {/* Navigation Breadcrumb / Top Bar */}
-        <div className="max-w-[760px] mx-auto pb-3 border-b border-[#2A526A]/30 flex items-center justify-between gap-4">
+        <div className="w-full pb-4 border-b border-gray-200 flex items-center justify-between gap-4">
           <Link
             to="/"
             hash="work"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-[#09263B] hover:text-[#1677B7] transition-colors min-h-[44px]"
+            className="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-[#09263B] hover:text-[#1677B7] transition-colors min-h-[44px]"
           >
-            <span className="rtl:rotate-180">←</span>
+            <span className="rtl:rotate-180 ltr:rotate-0 inline-block">←</span>
             <span>{t.selectedWork.backAction}</span>
           </Link>
 
@@ -260,13 +262,13 @@ function ArticleProjectView({ project }: { project: PortfolioProject }) {
           </span>
         </div>
 
-        {/* Pure White Article Reading Canvas */}
+        {/* Modern Wide-Canvas Pure White Article Reading Container */}
         <article
-          className="bg-[#ffffff] text-[#374151] border border-[#2A526A]/20 shadow-[0_4px_24px_rgba(9,38,59,0.06)] rounded-[4px] sm:rounded-[6px] px-5 py-8 sm:px-8 sm:py-12 md:px-12 md:py-14 lg:px-16 lg:py-16 max-w-[760px] mx-auto space-y-10 sm:space-y-12 transition-all duration-200 break-words"
+          className="article-content w-full max-w-none min-w-0 bg-[#ffffff] text-[#374151] space-y-10 sm:space-y-14 transition-all duration-200 break-words"
           style={{ fontFamily: "'Cairo', sans-serif" }}
         >
           {/* Article Header */}
-          <header className="space-y-5 sm:space-y-6 pb-8 sm:pb-10 border-b border-gray-200">
+          <header className="space-y-6 sm:space-y-8 pb-8 sm:pb-10 border-b border-gray-200 w-full">
             <div className="flex flex-wrap items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-[1px] bg-[#1677B7]" />
               <span className="text-xs font-bold tracking-widest uppercase text-[#1677B7]">
@@ -274,25 +276,27 @@ function ArticleProjectView({ project }: { project: PortfolioProject }) {
               </span>
             </div>
 
-            <h1 className="text-[28px] sm:text-[34px] md:text-[38px] lg:text-[42px] font-extrabold tracking-tight text-[#102F49] leading-[1.3] sm:leading-[1.32] [text-wrap:balance]">
+            <h1 className="text-[28px] sm:text-[36px] md:text-[44px] lg:text-[48px] font-extrabold tracking-tight text-[#102F49] leading-[1.3] sm:leading-[1.35] w-full break-words">
               {project.title[lang]}
             </h1>
 
             {/* Introductory lead paragraphs */}
-            <div className="space-y-4 pt-2 text-[#374151] text-[16px] sm:text-[18px] md:text-[19px] leading-[1.85] sm:leading-[1.9] font-normal">
+            <div className="space-y-4 pt-2 text-[#374151] text-[17px] sm:text-[19px] md:text-[20px] leading-[1.95] sm:leading-[2.05] font-normal w-full break-words">
               {article.intro[lang].map((para, idx) => (
-                <p key={idx}>{para}</p>
+                <p key={idx} className="w-full">
+                  {para}
+                </p>
               ))}
             </div>
 
-            {/* Optional Cover Image */}
+            {/* Cover Image spanning wide without distortion */}
             {project.coverImage && (
-              <div className="pt-2">
-                <div className="w-full rounded-[3px] overflow-hidden border border-gray-200 bg-gray-50">
+              <div className="pt-4 sm:pt-6 w-full">
+                <div className="w-full rounded-[4px] overflow-hidden border border-gray-200 bg-gray-50 shadow-xs">
                   <img
                     src={project.coverImage.src}
                     alt={project.coverImage.alt[lang]}
-                    className="w-full h-auto max-h-[420px] object-cover object-center"
+                    className="w-full h-auto max-h-[580px] object-cover sm:object-contain object-center mx-auto block"
                     loading="eager"
                     referrerPolicy="no-referrer"
                   />
@@ -302,22 +306,22 @@ function ArticleProjectView({ project }: { project: PortfolioProject }) {
           </header>
 
           {/* Article Core Content Sections */}
-          <div className="space-y-10 sm:space-y-12 text-[#374151]">
+          <div className="space-y-10 sm:space-y-14 text-[#374151] w-full">
             {article.sections.map((section, idx) => (
-              <section key={idx} className="space-y-4">
-                <div className="pb-2.5 border-b border-gray-200">
+              <section key={idx} className="space-y-4 w-full">
+                <div className="pb-3 border-b border-gray-200 w-full">
                   {section.heading && (
-                    <h2 className="text-[20px] sm:text-[23px] md:text-[26px] font-bold text-[#102F49] tracking-tight leading-[1.35]">
+                    <h2 className="text-[22px] sm:text-[26px] md:text-[30px] font-bold text-[#102F49] tracking-tight leading-[1.4] w-full break-words">
                       {section.heading[lang]}
                     </h2>
                   )}
                 </div>
 
-                <div className="space-y-5 pt-1">
+                <div className="space-y-5 pt-1 w-full">
                   {section.paragraphs[lang].map((para, pIdx) => (
                     <p
                       key={pIdx}
-                      className="text-[16px] sm:text-[18px] md:text-[19px] leading-[1.85] sm:leading-[1.9] text-[#374151]"
+                      className="text-[17px] sm:text-[19px] md:text-[20px] leading-[1.95] sm:leading-[2.05] text-[#374151] w-full break-words"
                     >
                       {para}
                     </p>
@@ -328,13 +332,15 @@ function ArticleProjectView({ project }: { project: PortfolioProject }) {
 
             {/* Callout Question Section */}
             {article.callout && (
-              <aside className="bg-[#F0F7FA] border-s-4 border-[#1677B7] p-5 sm:p-7 rounded-[3px] space-y-3 shadow-xs">
-                <h3 className="text-[18px] sm:text-[21px] font-bold text-[#102F49] leading-[1.4]">
+              <aside className="w-full bg-[#F0F7FA] border-s-4 border-[#1677B7] p-6 sm:p-8 md:p-10 rounded-[4px] space-y-4 shadow-xs">
+                <h3 className="text-[19px] sm:text-[23px] font-bold text-[#102F49] leading-[1.4] w-full break-words">
                   {article.callout.heading[lang]}
                 </h3>
-                <div className="space-y-3 text-[16px] sm:text-[18px] leading-[1.85] sm:leading-[1.9] text-[#374151]">
+                <div className="space-y-3.5 text-[17px] sm:text-[19px] leading-[1.9] sm:leading-[2.0] text-[#374151] w-full break-words">
                   {article.callout.paragraphs[lang].map((para, cIdx) => (
-                    <p key={cIdx}>{para}</p>
+                    <p key={cIdx} className="w-full">
+                      {para}
+                    </p>
                   ))}
                 </div>
               </aside>
@@ -342,15 +348,17 @@ function ArticleProjectView({ project }: { project: PortfolioProject }) {
 
             {/* Conclusion Section */}
             {article.conclusion && (
-              <section className="space-y-4 pt-6 border-t border-gray-200">
-                <h2 className="text-[20px] sm:text-[23px] md:text-[26px] font-bold text-[#102F49] tracking-tight leading-[1.35]">
-                  {article.conclusion.heading[lang]}
-                </h2>
-                <div className="space-y-5 pt-1">
+              <section className="space-y-4 pt-6 border-t border-gray-200 w-full">
+                <div className="w-full">
+                  <h2 className="text-[22px] sm:text-[26px] md:text-[30px] font-bold text-[#102F49] tracking-tight leading-[1.4] w-full break-words">
+                    {article.conclusion.heading[lang]}
+                  </h2>
+                </div>
+                <div className="space-y-5 pt-1 w-full">
                   {article.conclusion.paragraphs[lang].map((para, kIdx) => (
                     <p
                       key={kIdx}
-                      className="text-[16px] sm:text-[18px] md:text-[19px] leading-[1.85] sm:leading-[1.9] text-[#374151]"
+                      className="text-[17px] sm:text-[19px] md:text-[20px] leading-[1.95] sm:leading-[2.05] text-[#374151] w-full break-words"
                     >
                       {para}
                     </p>
@@ -361,11 +369,11 @@ function ArticleProjectView({ project }: { project: PortfolioProject }) {
           </div>
 
           {/* Footer Actions inside the Article Container */}
-          <footer className="pt-8 sm:pt-10 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <footer className="pt-8 sm:pt-10 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4 w-full">
             <Link
               to="/"
               hash="work"
-              className="inline-flex items-center justify-center px-5 py-2.5 sm:px-6 sm:py-3 text-sm font-semibold text-[#102F49] bg-gray-100 hover:bg-gray-200 rounded-[3px] transition-colors border border-gray-300 w-full sm:w-auto min-h-[44px]"
+              className="inline-flex items-center justify-center px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-[#102F49] bg-gray-100 hover:bg-gray-200 rounded-[3px] transition-colors border border-gray-300 w-full sm:w-auto min-h-[44px]"
             >
               <span className="rtl:rotate-180 ltr:rotate-0 inline-block me-2">←</span>
               <span>{t.selectedWork.backAction}</span>
@@ -379,14 +387,14 @@ function ArticleProjectView({ project }: { project: PortfolioProject }) {
                 aria-label={
                   lang === "ar" ? "اطلب الخدمة عبر WhatsApp" : "Request a service via WhatsApp"
                 }
-                className="inline-flex items-center justify-center px-5 py-2.5 sm:px-6 sm:py-3 text-sm font-semibold text-[#FFFFFF] bg-[#1677B7] hover:bg-[#1677B7]/90 rounded-[3px] transition-colors border border-[#1677B7] w-full sm:w-auto min-h-[44px]"
+                className="inline-flex items-center justify-center px-6 py-3 sm:px-7 sm:py-3.5 text-sm sm:text-base font-bold text-[#FFFFFF] bg-[#1677B7] hover:bg-[#1677B7]/90 rounded-[3px] transition-colors border border-[#1677B7] shadow-sm w-full sm:w-auto min-h-[48px]"
               >
                 {lang === "ar" ? "اطلب الخدمة →" : "Request a service →"}
               </a>
             ) : (
               <a
                 href="/#contact"
-                className="inline-flex items-center justify-center px-5 py-2.5 sm:px-6 sm:py-3 text-sm font-semibold text-[#FFFFFF] bg-[#1677B7] hover:bg-[#1677B7]/90 rounded-[3px] transition-colors border border-[#1677B7] w-full sm:w-auto min-h-[44px]"
+                className="inline-flex items-center justify-center px-6 py-3 sm:px-7 sm:py-3.5 text-sm sm:text-base font-bold text-[#FFFFFF] bg-[#1677B7] hover:bg-[#1677B7]/90 rounded-[3px] transition-colors border border-[#1677B7] shadow-sm w-full sm:w-auto min-h-[48px]"
               >
                 {t.nav.talkCta}
               </a>

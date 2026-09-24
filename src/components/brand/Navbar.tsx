@@ -36,7 +36,13 @@ export function Navbar() {
           href="/"
           className="group flex items-center gap-2.5 text-decoration-none focus:outline-hidden"
         >
-          <span className="w-2.5 h-2.5 rounded-[2px] bg-[#1677B7] group-hover:bg-[#FFFFFF] transition-colors" />
+          <img
+            src="/favicon.png"
+            alt={lang === "ar" ? "شعار محمد الخيوتي" : "Mohammad Alkhayouti Logo"}
+            className="w-8 h-8 object-contain shrink-0"
+            width={32}
+            height={32}
+          />
           <span className="font-bold text-lg tracking-tight text-[#FFFFFF] group-hover:text-[#1677B7] transition-colors">
             {t.nav.name}
           </span>

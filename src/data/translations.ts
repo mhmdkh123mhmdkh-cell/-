@@ -195,7 +195,7 @@ export const content: Record<Language, Translations> = {
     },
     hero: {
       name: "محمد الخيوتي",
-      tagline: "أساعد في تحويل الفكرة إلى محتوى وتصميم وموقع.",
+      tagline: "أساعد في تحويل الفكرة إلى محتوى وتصميم وموقع",
       headline: "محمد الخيوتي",
       support: "",
       availability: "",

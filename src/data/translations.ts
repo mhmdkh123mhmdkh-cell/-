@@ -156,10 +156,6 @@ export const content: Record<Language, Translations> = {
         },
       ],
     },
-    writing: {
-      tags: ["Scientific Article", "Creative Writing", "Reliable Sources", "SEO"],
-      statement: "I write content only after understanding the topic and the reader.",
-    },
     about: {
       mark: "M",
       text: "I am Mohammad Alkhayouti, a medical student.",
@@ -265,10 +261,6 @@ export const content: Record<Language, Translations> = {
           description: "نحو ثماني سنوات في بيع المنتجات، وخدمة الزبائن، والطباعة وتصوير المستندات.",
         },
       ],
-    },
-    writing: {
-      tags: ["مقال علمي", "مقال إبداعي", "مصادر موثوقة", "SEO"],
-      statement: "أكتب المحتوى بعد أن أفهم الموضوع والقارئ.",
     },
     about: {
       mark: "م",

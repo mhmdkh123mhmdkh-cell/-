@@ -12,8 +12,8 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  // English is the default and primary language
-  const [lang, setLangState] = useState<Language>("en");
+  // Arabic is the default language
+  const [lang, setLangState] = useState<Language>("ar");
 
   useEffect(() => {
     if (typeof window !== "undefined") {

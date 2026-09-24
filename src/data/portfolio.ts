@@ -435,5 +435,4 @@ export const portfolioProjects: PortfolioProject[] = [
       },
     },
   },
-
 ];

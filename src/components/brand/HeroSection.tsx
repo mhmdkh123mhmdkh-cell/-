@@ -4,7 +4,7 @@ export function HeroSection() {
   const { t } = useLanguage();
 
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-[#C7DDE8] border-b border-[#2A526A]">
+    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-[#C7DDE8]">
       <div className="editorial-shell">
         <div className="max-w-3xl space-y-6 md:space-y-8">
           {/* Name & Tagline */}

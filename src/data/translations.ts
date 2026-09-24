@@ -43,12 +43,8 @@ export interface Translations {
       description: string;
     }[];
   };
-  writing: {
-    tags: string[];
-    statement: string;
-  };
   about: {
-    mark: string;
+    title: string;
     text: string;
   };
   contact: {
@@ -116,13 +112,11 @@ export const content: Record<Language, Translations> = {
             "I create and publish responsive personal and business websites, shaping their structure, visual identity, and user experience from idea to live site.",
         },
         {
-          smallLabel: "PUBLISHING",
           title: "Digital Publishing & Content Structure",
           description:
             "Formatting and publishing content through WordPress, organizing documents, improving article structure, and making content easier to read and access.",
         },
         {
-          smallLabel: "DESIGN",
           title: "Content & Document Design",
           description: "Creating visual materials that support educational content using Canva.",
         },
@@ -154,11 +148,16 @@ export const content: Record<Language, Translations> = {
           description:
             "Around eight years in sales, customer care, printing, and document copying.",
         },
+        {
+          title: "Freelance Work",
+          description:
+            "Providing content, website, and design services according to clients’ needs, from concept and execution to delivery.",
+        },
       ],
     },
     about: {
-      mark: "M",
-      text: "I am Mohammad Alkhayouti, a medical student.",
+      title: "About",
+      text: "It is difficult for me to define myself by a single title. I am a medical student, but medicine is not the only thing I learn. The digital world is not separate from who I am. I enjoy researching, learning, and experimenting—not merely for knowledge, but to give an idea the chance to see the light instead of remaining trapped in the mind.",
     },
     contact: {
       title: "Let's talk",
@@ -224,13 +223,11 @@ export const content: Record<Language, Translations> = {
             "إنشاء ونشر مواقع شخصية وتجارية متجاوبة، من بناء هيكل الموقع وهويته البصرية إلى تنظيم المحتوى وتجهيز الموقع للنشر.",
         },
         {
-          smallLabel: "النشر الرقمي",
           title: "النشر الرقمي وبنية المحتوى",
           description:
             "تنسيق المحتوى ونشره عبر WordPress، وتنظيم المستندات، وتحسين بنية المقالات، وجعل المحتوى أسهل في القراءة والوصول.",
         },
         {
-          smallLabel: "التصميم",
           title: "تصميم المحتوى والوثائق",
           description: "إنشاء مواد بصرية مساندة للمحتوى التعليمي باستخدام Canva.",
         },
@@ -260,11 +257,16 @@ export const content: Record<Language, Translations> = {
           title: "مكتبة الأندلس",
           description: "نحو ثماني سنوات في بيع المنتجات، وخدمة الزبائن، والطباعة وتصوير المستندات.",
         },
+        {
+          title: "العمل الحر",
+          description:
+            "تقديم خدمات المحتوى والمواقع والتصميم بحسب احتياجات العملاء، من الفكرة والتنفيذ إلى التسليم.",
+        },
       ],
     },
     about: {
-      mark: "م",
-      text: "أنا محمد الخيوتي طالب طب.",
+      title: "عنّي",
+      text: "يَصعب عليّ تعريف نفسي في مُسمّى واحد، أنا طالب طب لكن الطب ليس الشيء الوحيد الذي أتعلمه، والعالم الرقمي ليس مجالًا منفصلًا عني، أحب أن أبحث وأتعلم وأجرّب، لا لمجرد المعرفة، بل لأمنح الفكرة فرصة أن ترى النور ولا تبقى حبيسة العقل.",
     },
     contact: {
       title: "لنتحدث",

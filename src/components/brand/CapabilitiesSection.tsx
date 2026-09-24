@@ -10,7 +10,7 @@ export function CapabilitiesSection() {
         className="editorial-card bg-[#102F49] border border-[#2A526A] p-8 sm:p-9 flex flex-col justify-start group hover:border-[#1677B7] h-full"
       >
         {/* Top header: small label if present and corner accent */}
-        <div className="flex items-center justify-between pb-4 border-b border-[#2A526A]">
+        <div className="flex items-center justify-between pb-3 border-b border-[#2A526A]">
           <div>
             {item.smallLabel && (
               <span className="text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-[2px] bg-[#1677B7]/20 text-[#1677B7] border border-[#1677B7]/40">
@@ -22,7 +22,7 @@ export function CapabilitiesSection() {
         </div>
 
         {/* Card Content: Title and Description with balanced spacing */}
-        <div className="pt-5 space-y-3">
+        <div className="pt-4 space-y-3">
           {/* Title in #D6E6EC */}
           <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#D6E6EC] leading-snug">
             {item.title}

@@ -4,7 +4,7 @@ export function ContactSection() {
   const { t } = useLanguage();
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-[#C7DDE8] border-t border-[#2A526A]">
+    <section id="contact" className="py-20 md:py-28 bg-[#C7DDE8]">
       <div className="editorial-shell space-y-16">
         {/* Contact Heading */}
         <div className="max-w-2xl space-y-4">

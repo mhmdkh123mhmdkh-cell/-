@@ -13,8 +13,8 @@ export function ExperiencesSection() {
           </h2>
         </div>
 
-        {/* 3 Experience Cards: Equal height, informative editorial cards without bottom text */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Experience Cards: Equal height, informative editorial cards without bottom text */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {t.experiences.items.map((item) => (
             <div
               key={item.title}

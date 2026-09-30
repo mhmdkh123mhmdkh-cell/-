@@ -6,6 +6,21 @@ import { portfolioProjects, type PortfolioProject } from "@/data/portfolio";
 export const Route = createFileRoute("/work/$slug")({
   head: ({ params }) => {
     const project = portfolioProjects.find((p) => p.slug === params.slug);
+    if (project?.slug === "career-identity") {
+      const title = `${project.title.ar} — محمد الخيوتي`;
+      const description = project.seo.description.ar;
+      return {
+        meta: [
+          { title },
+          { name: "description", content: description },
+          { property: "og:title", content: title },
+          { property: "og:description", content: description },
+          { property: "og:type", content: "article" },
+          { name: "twitter:card", content: "summary_large_image" },
+        ],
+      };
+    }
+
     const title = project
       ? `${project.title.ar} | ${project.title.en} — Mohammad Alkhayouti`
       : "Project — Mohammad Alkhayouti";
@@ -238,12 +253,17 @@ function ArticleProjectView({ project }: { project: PortfolioProject }) {
   const { lang, t } = useLanguage();
   const article = project.article!;
 
+  // Strict Arabic enforcement for Arabic-only articles (like career-identity)
+  const isArabicOnly = project.slug === "career-identity";
+  const effectiveLang = isArabicOnly ? "ar" : lang;
+  const backActionLabel = isArabicOnly ? "العودة إلى الأعمال" : t.selectedWork.backAction;
+
   return (
     <div
       className="min-h-screen w-full min-w-0 bg-[#ffffff] text-[#09263B] selection:bg-[#1677B7] selection:text-[#FFFFFF] transition-colors duration-200 overflow-x-hidden article-page content-page"
-      dir={lang === "ar" ? "rtl" : "ltr"}
+      dir={isArabicOnly ? "rtl" : lang === "ar" ? "rtl" : "ltr"}
     >
-      <Navbar />
+      <Navbar hideLanguageSwitcher={isArabicOnly} />
 
       <main className="article-layout article-container w-full max-w-none m-0 pt-24 pb-20 sm:pt-32 sm:pb-24 md:pt-36 md:pb-28 space-y-8 bg-[#ffffff] box-border">
         {/* Navigation Breadcrumb / Top Bar */}
@@ -254,11 +274,11 @@ function ArticleProjectView({ project }: { project: PortfolioProject }) {
             className="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-[#09263B] hover:text-[#1677B7] transition-colors min-h-[44px]"
           >
             <span className="rtl:rotate-180 ltr:rotate-0 inline-block">←</span>
-            <span>{t.selectedWork.backAction}</span>
+            <span>{backActionLabel}</span>
           </Link>
 
           <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-[2px] bg-[#102F49] text-[#D6E6EC] border border-[#2A526A]">
-            {project.categoryLabel[lang]}
+            {project.categoryLabel[effectiveLang]}
           </span>
         </div>
 
@@ -272,17 +292,17 @@ function ArticleProjectView({ project }: { project: PortfolioProject }) {
             <div className="flex flex-wrap items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-[1px] bg-[#1677B7]" />
               <span className="text-xs font-bold tracking-widest uppercase text-[#1677B7]">
-                {project.categoryLabel[lang]}
+                {project.categoryLabel[effectiveLang]}
               </span>
             </div>
 
             <h1 className="text-[28px] sm:text-[36px] md:text-[44px] lg:text-[48px] font-extrabold tracking-tight text-[#102F49] leading-[1.3] sm:leading-[1.35] w-full break-words">
-              {project.title[lang]}
+              {project.title[effectiveLang]}
             </h1>
 
             {/* Introductory lead paragraphs */}
             <div className="space-y-4 pt-2 text-[#374151] text-[17px] sm:text-[19px] md:text-[20px] leading-[1.95] sm:leading-[2.05] font-normal w-full break-words">
-              {article.intro[lang].map((para, idx) => (
+              {article.intro[effectiveLang].map((para, idx) => (
                 <p key={idx} className="w-full">
                   {para}
                 </p>
@@ -295,7 +315,7 @@ function ArticleProjectView({ project }: { project: PortfolioProject }) {
                 <div className="w-full rounded-[4px] overflow-hidden border border-gray-200 bg-gray-50 shadow-xs">
                   <img
                     src={project.coverImage.src}
-                    alt={project.coverImage.alt[lang]}
+                    alt={project.coverImage.alt[effectiveLang]}
                     className="w-full h-auto max-h-[580px] object-cover sm:object-contain object-center mx-auto block"
                     loading="eager"
                     referrerPolicy="no-referrer"
@@ -308,24 +328,75 @@ function ArticleProjectView({ project }: { project: PortfolioProject }) {
           {/* Article Core Content Sections */}
           <div className="space-y-10 sm:space-y-14 text-[#374151] w-full">
             {article.sections.map((section, idx) => (
-              <section key={idx} className="space-y-4 w-full">
+              <section key={idx} className="space-y-5 w-full">
                 <div className="pb-3 border-b border-gray-200 w-full">
                   {section.heading && (
                     <h2 className="text-[22px] sm:text-[26px] md:text-[30px] font-bold text-[#102F49] tracking-tight leading-[1.4] w-full break-words">
-                      {section.heading[lang]}
+                      {section.heading[effectiveLang]}
                     </h2>
                   )}
                 </div>
 
                 <div className="space-y-5 pt-1 w-full">
-                  {section.paragraphs[lang].map((para, pIdx) => (
-                    <p
-                      key={pIdx}
-                      className="text-[17px] sm:text-[19px] md:text-[20px] leading-[1.95] sm:leading-[2.05] text-[#374151] w-full break-words"
-                    >
-                      {para}
-                    </p>
-                  ))}
+                  {section.paragraphs[effectiveLang].map((para, pIdx) => {
+                    // Check if this paragraph is a quote or template (starts with «)
+                    if (para.trim().startsWith("«") && para.trim().endsWith("»")) {
+                      return (
+                        <div
+                          key={pIdx}
+                          className="my-6 p-6 sm:p-7 bg-[#F0F7FA] border-s-4 border-[#1677B7] rounded-[4px] shadow-xs"
+                        >
+                          <div className="text-xs font-bold uppercase tracking-wider text-[#1677B7] mb-2.5">
+                            {effectiveLang === "ar"
+                              ? "صيغة القالب المقترح:"
+                              : "Suggested Template:"}
+                          </div>
+                          <blockquote className="text-[18px] sm:text-[20px] md:text-[21px] font-semibold text-[#102F49] leading-[1.85] sm:leading-[1.95] m-0">
+                            {para}
+                          </blockquote>
+                        </div>
+                      );
+                    }
+
+                    // Check if paragraph contains bullet points
+                    if (para.includes("\n• ") || para.startsWith("• ")) {
+                      const lines = para.split("\n");
+                      const introLine = lines[0].startsWith("• ") ? null : lines[0];
+                      const bulletLines = lines.filter((l) => l.trim().startsWith("• "));
+
+                      return (
+                        <div key={pIdx} className="space-y-3 w-full">
+                          {introLine && (
+                            <p className="text-[17px] sm:text-[19px] md:text-[20px] leading-[1.95] sm:leading-[2.05] text-[#374151] font-medium w-full break-words">
+                              {introLine}
+                            </p>
+                          )}
+                          <ul className="space-y-2.5 my-2 ps-2 w-full">
+                            {bulletLines.map((bullet, bIdx) => (
+                              <li
+                                key={bIdx}
+                                className="flex items-start gap-3 text-[17px] sm:text-[19px] md:text-[20px] leading-[1.9] sm:leading-[2.0] text-[#374151]"
+                              >
+                                <span className="w-2 h-2 rounded-full bg-[#1677B7] mt-3 shrink-0" />
+                                <span className="flex-1 break-words">
+                                  {bullet.replace(/^•\s*/, "")}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      );
+                    }
+
+                    return (
+                      <p
+                        key={pIdx}
+                        className="text-[17px] sm:text-[19px] md:text-[20px] leading-[1.95] sm:leading-[2.05] text-[#374151] w-full break-words"
+                      >
+                        {para}
+                      </p>
+                    );
+                  })}
                 </div>
               </section>
             ))}
@@ -334,10 +405,10 @@ function ArticleProjectView({ project }: { project: PortfolioProject }) {
             {article.callout && (
               <aside className="w-full bg-[#F0F7FA] border-s-4 border-[#1677B7] p-6 sm:p-8 md:p-10 rounded-[4px] space-y-4 shadow-xs">
                 <h3 className="text-[19px] sm:text-[23px] font-bold text-[#102F49] leading-[1.4] w-full break-words">
-                  {article.callout.heading[lang]}
+                  {article.callout.heading[effectiveLang]}
                 </h3>
                 <div className="space-y-3.5 text-[17px] sm:text-[19px] leading-[1.9] sm:leading-[2.0] text-[#374151] w-full break-words">
-                  {article.callout.paragraphs[lang].map((para, cIdx) => (
+                  {article.callout.paragraphs[effectiveLang].map((para, cIdx) => (
                     <p key={cIdx} className="w-full">
                       {para}
                     </p>
@@ -351,11 +422,11 @@ function ArticleProjectView({ project }: { project: PortfolioProject }) {
               <section className="space-y-4 pt-6 border-t border-gray-200 w-full">
                 <div className="w-full">
                   <h2 className="text-[22px] sm:text-[26px] md:text-[30px] font-bold text-[#102F49] tracking-tight leading-[1.4] w-full break-words">
-                    {article.conclusion.heading[lang]}
+                    {article.conclusion.heading[effectiveLang]}
                   </h2>
                 </div>
                 <div className="space-y-5 pt-1 w-full">
-                  {article.conclusion.paragraphs[lang].map((para, kIdx) => (
+                  {article.conclusion.paragraphs[effectiveLang].map((para, kIdx) => (
                     <p
                       key={kIdx}
                       className="text-[17px] sm:text-[19px] md:text-[20px] leading-[1.95] sm:leading-[2.05] text-[#374151] w-full break-words"
@@ -376,10 +447,20 @@ function ArticleProjectView({ project }: { project: PortfolioProject }) {
               className="inline-flex items-center justify-center px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-[#102F49] bg-gray-100 hover:bg-gray-200 rounded-[3px] transition-colors border border-gray-300 w-full sm:w-auto min-h-[44px]"
             >
               <span className="rtl:rotate-180 ltr:rotate-0 inline-block me-2">←</span>
-              <span>{t.selectedWork.backAction}</span>
+              <span>{backActionLabel}</span>
             </Link>
 
-            {project.slug === "content-marketing" ? (
+            {project.slug === "career-identity" ? (
+              <a
+                href="https://wa.me/963981434844"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="تواصل معي عبر WhatsApp"
+                className="inline-flex items-center justify-center px-6 py-3 sm:px-7 sm:py-3.5 text-sm sm:text-base font-bold text-[#FFFFFF] bg-[#1677B7] hover:bg-[#1677B7]/90 rounded-[3px] transition-colors border border-[#1677B7] shadow-sm w-full sm:w-auto min-h-[48px]"
+              >
+                <span>تواصل معي عبر WhatsApp ←</span>
+              </a>
+            ) : project.slug === "content-marketing" ? (
               <a
                 href="https://wa.me/963981434844"
                 target="_blank"

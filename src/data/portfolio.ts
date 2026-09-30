@@ -301,6 +301,130 @@ export const portfolioProjects: PortfolioProject[] = [
     },
   },
   {
+    id: "item-career-identity",
+    slug: "career-identity",
+    category: "writing",
+    categoryLabel: {
+      en: "Content Writing",
+      ar: "كتابة محتوى",
+    },
+    title: {
+      en: "How to Know Yourself and Define It Professionally — From Values and Skills to Building a Career Story",
+      ar: "كيف تعرف نفسك وتُعرّف بها مهنيًا؟ من الوعي بالقيم والمهارات إلى بناء قصة مهنية",
+    },
+    shortDescription: {
+      en: "Most job seekers memorize 'introduce yourself' like a school chant. True persuasion starts with self-awareness: separating self-knowledge, self-esteem, and confidence to build an authentic story.",
+      ar: "أغلب من يستعد لمقابلة عمل يحفظ إجابة سؤال «عرّفنا عن نفسك» كنشيد مدرسي. دليل عملي لبناء تعريف صادق ومقنع يبدأ من الوعي بالقيم والمهارات والاعتراف بالقدرات الحقيقية.",
+    },
+    coverImage: {
+      src: "/images/career-identity.jpg",
+      alt: {
+        ar: "صورة لمقابلة عمل ومراجعة السيرة الذاتية",
+        en: "Job interview and resume discussion",
+      },
+    },
+    coverPlaceholder: {
+      badge: {
+        en: "Article / Career",
+        ar: "مقال تحريري",
+      },
+      pattern: "document",
+    },
+    seo: {
+      title: {
+        en: "How to Know Yourself and Define It Professionally — Mohammad Alkhayouti",
+        ar: "كيف تعرف نفسك وتُعرّف بها مهنيًا؟ من الوعي بالقيم والمهارات إلى بناء قصة مهنية — محمد الخيوتي",
+      },
+      description: {
+        en: "A practical editorial guide on building an authentic professional introduction through true self-awareness, skill recognition, and storytelling.",
+        ar: "أغلب من يستعد لمقابلة عمل يحفظ إجابة سؤال «عرّفنا عن نفسك» كنشيد مدرسي. دليل عملي لبناء تعريف صادق ومقنع يبدأ من الوعي بالقيم والمهارات إلى بناء قصة مهنية متماسكة.",
+      },
+    },
+    isPlaceholder: false,
+    article: {
+      intro: {
+        ar: [
+          'أغلب من يستعد لمقابلة عمل يحفظ إجابة سؤال "عرّفنا عن نفسك" كنشيد مدرسي: جمل جاهزة، ترتيب متوقع، ونبرة يمكن التنبؤ بها من أول كلمة. المفارقة أن هذا السرد هو ما يفضح صاحبه؛ لأن من يعرف نفسه حقاً يحتاج فقط إلى أن يستحضر ما يعرفه عن قيمه ومهاراته وقدراته، ثم يصوغه بما يناسب اللحظة. الخلاصة أن المشكلة تكمن في غياب معرفة حقيقية بالذات يُبنى منها تعريف صادق ومقنع.',
+        ],
+        en: [
+          "Most people preparing for a job interview memorize the answer to 'tell us about yourself' like a school chant: prepared sentences, predictable order, and a tone foreseen from the very first word. The paradox is that this canned recitation exposes its speaker; someone who genuinely knows themselves only needs to summon their awareness of their values, skills, and strengths, adapting them to the present moment. The core issue lies in the absence of true self-knowledge from which an authentic, persuasive introduction can be built.",
+        ],
+      },
+      sections: [
+        {
+          heading: {
+            ar: "قبل أن تُعرّف نفسك، هل تعرفها حقًا؟",
+            en: "Before Defining Yourself, Do You Truly Know It?",
+          },
+          paragraphs: {
+            ar: [
+              'حين الحديث عن "معرفة الذات"، يذوب المصطلح في وعظ عام: اعرف نفسك، ثق بنفسك، حدد أهدافك. لكن هذه العبارات تخفي في الحقيقة ثلاثة مفاهيم منفصلة تمامًا، والخلط بينها هو ما يجعل كثيرين يظنون أنهم "لا يعرفون أنفسهم" بينما المشكلة الحقيقية أدق من ذلك.',
+              "معرفة الذات هي الفهم الدقيق لما تقوم عليه شخصيتك فعليًا: قيمك، ودوافعك، وقدراتك الحقيقية، وحدودك أيضًا. هي سؤال وصفي: من أنت، وماذا تجيد، وماذا تريد؟",
+              "أما تقدير الذات فهو حكم عام على قيمتك كإنسان، بمعزل عن أي مهمة محددة؛ إنه الشعور الداخلي بأنك تستحق الاحترام والمحبة بصرف النظر عن إنجازاتك.",
+              "وأما الثقة بالنفس فهي أضيق من الاثنين معًا؛ إنها إيمانك بقدرتك على أداء مهمة معينة أو مواجهة موقف بعينه، وقد تكون واثقًا جدًا في مجال وغير واثق إطلاقًا في مجال آخر، دون أن يعني ذلك خللًا في تقديرك لذاتك.",
+              'هذا التفريق ليس ترفًا نظريًا؛ فمن يخلط بين تقدير الذات والثقة بالنفس قد يظن أن الحل لضعف ثقته في مهارة معينة هو "التفكير الإيجابي" العام، بينما الحل الفعلي هو ممارسة تلك المهارة تحديدًا حتى تتكوّن كفاءة حقيقية تدعم الثقة. ومن يخلط بين معرفة الذات وتقدير الذات، قد يعتقد أن الاعتراف بنقطة ضعف حقيقية فيه إهانة لذاته، بينما هو في الحقيقة شرط أساسي لأي تعريف مهني صادق.',
+            ],
+            en: [
+              "When discussing 'self-knowledge', the term often dissolves into general preaching: know yourself, trust yourself, set goals. Yet these phrases conceal three entirely separate concepts, and confusing them causes many to believe they 'don't know themselves' when the real challenge is far more nuanced.",
+              "Self-knowledge is the precise understanding of what your personality actually rests on: your values, motivations, real abilities, and boundaries. It is a descriptive question: Who are you, what are you good at, and what do you want?",
+              "Self-esteem, meanwhile, is an overarching judgment of your worth as a human being, independent of any specific task; it is the inner conviction that you deserve respect and care regardless of accomplishments.",
+              "Self-confidence is narrower than both: it is your belief in your ability to perform a specific task or navigate a distinct situation. You might feel immensely confident in one area and lack confidence in another, without that implying any flaw in your self-esteem.",
+              "This distinction is far from theoretical; confusing self-esteem with self-confidence leads people to believe that the remedy for low confidence in a skill is vague 'positive thinking', whereas the actual solution is deliberate practice until competence builds confidence. And confusing self-knowledge with self-esteem leads to viewing weakness as an insult to one's worth, whereas acknowledging it is an essential prerequisite for any genuine professional identity.",
+            ],
+          },
+        },
+        {
+          heading: {
+            ar: "لماذا تقلل من قدراتك؟",
+            en: "Why Do You Underestimate Your Abilities?",
+          },
+          paragraphs: {
+            ar: [
+              "هناك أسباب متكررة تجعل الشخص يستهين بمهارة يتقنها فعلًا، دون أن يعني ذلك خللًا نفسيًا عميقًا فيه. أحد هذه الأسباب هو الاعتياد؛ فما تفعله بسهولة يبدو لك بديهيًا، فتفترض أن الجميع يستطيعه، بينما هو في الحقيقة نتيجة تمرّن طويل لم تعد تشعر بثقله. سبب آخر هو المقارنة المستمرة بأشخاص أكثر خبرة منك في المجال نفسه، وهي مقارنة تُخفي التقدم الذي أحرزته أنت لأنها تقيسك بمن سبقك بسنوات، لا بنقطة انطلاقك. وهناك أيضًا ميل شائع إلى التركيز على الأخطاء القليلة وتجاهل النجاحات المتكررة، فيبقى الخطأ الواحد عالقًا في الذاكرة بينما تذوب عشرات المواقف التي أُنجزت بنجاح. وأخيرًا، قد ينسب البعض نجاحه إلى الحظ أو الظروف المناسبة، فيرفض الاعتراف بأن مهارته الشخصية كانت جزءًا أساسيًا من النتيجة.",
+              'هذه الأسباب ليست تشخيصًا نفسيًا لأحد، بل أنماط شائعة تستحق أن تراجع نفسك فيها قبل أن تحكم بأنك "لا تملك موهبة" في شيء تفعله جيدًا بالفعل.',
+            ],
+            en: [
+              "Recurring factors lead people to underestimate skills they actually master, without that pointing to a deep psychological flaw. One reason is habituation: what you do with ease feels intuitive, leading you to assume everyone can do it, whereas it is actually the outcome of prolonged practice whose weight you no longer feel. Another factor is continuous comparison with seasoned professionals in your field—a comparison that obscures your progress by measuring against veterans rather than your own starting point. There is also a common tendency to fixate on rare mistakes while dismissing frequent triumphs, leaving a single error vivid in memory while dozens of successes fade. Finally, some attribute their wins purely to luck or fortunate timing, refusing to credit personal skill as a cornerstone of the outcome.",
+              "These reasons are not personal diagnoses; they are widespread patterns worth examining before concluding you 'lack talent' in something you already do remarkably well.",
+            ],
+          },
+        },
+        {
+          heading: {
+            ar: "قالب عملي للتعريف عن النفس",
+            en: "A Practical Framework for Self-Introduction",
+          },
+          paragraphs: {
+            ar: [
+              "قبل أن تحاول صياغة أي تعريف، أجب بصدق عن خمسة أسئلة: ما الذي أجيده فعلًا؟ وما الدليل الملموس على ذلك؟ ما الذي أستمتع به حين أعمل عليه؟ ما القيمة التي لا أريد أن أتنازل عنها في أي عمل أقبل عليه؟ وما المهارة التي أعرف أنني بحاجة إلى تطويرها؟ حاول أن تحوّل إجاباتك إلى نبذة مهنية من ستين إلى تسعين كلمة؛ ستجد أن أغلب عناصر التعريف الجيد كانت موجودة لديك من البداية، وكل ما احتجته هو تنظيمها.",
+              "«أنا [المجال أو الدور]، لدي خبرة أو اهتمام في [مجال محدد]. طوّرت [مهارتين أو ثلاثًا] من خلال [تجربة ملموسة]. ومن أبرز ما أنجزته [إنجاز أو نتيجة واضحة]. وأسعى الآن إلى [هدف مهني مرتبط بالفرصة التي أمامي].»",
+              "التعريف نفسه يتغيّر بتغيّر من تكون:\n• الطالب الذي لا يملك خبرة وظيفية يمكنه الاستناد إلى مشاريع دراسية أو عمل تطوعي أو أنشطة جامعية، وصياغتها بالطريقة نفسها: موقف، إجراء، نتيجة.\n• الخريج الحديث يركّز على تخصصه وأي تدريب عملي قام به، مع الإشارة إلى ما يبحث عنه في أول فرصة عمل.\n• من يريد تغيير مساره المهني يحتاج إلى إبراز المهارات القابلة للنقل بين المجالين، والربط الصريح بين خبرته السابقة وسبب توجهه الجديد.",
+            ],
+            en: [
+              "Before attempting any pitch, answer five questions honestly: What am I genuinely good at? What is concrete evidence of that? What do I enjoy working on? What value will I not compromise in any work I take on? And what skill do I know I need to develop? Transform your answers into a concise 60 to 90-word professional summary; you will find that most elements of a compelling introduction were already there, awaiting structured articulation.",
+              '"I am [field or role], with experience or deep interest in [specific domain]. I developed [two or three core skills] through [tangible experience]. A key milestone I achieved is [clear outcome or accomplishment]. I am now seeking [professional goal aligned with the opportunity ahead]."',
+              "The introduction adapts depending on who you are:\n• The student without work history draws on academic projects, volunteering, or collegiate activities, framed through: Situation, Action, Result.\n• The fresh graduate highlights academic specialization and internships, clarifying what they seek in their initial role.\n• The career changer underscores transferable skills between disciplines, building an explicit bridge between prior experience and new direction.",
+            ],
+          },
+        },
+      ],
+      conclusion: {
+        heading: {
+          ar: "من السؤال الفلسفي إلى القرار العملي",
+          en: "From Philosophical Inquiry to Practical Action",
+        },
+        paragraphs: {
+          ar: [
+            'سؤال "من أنا؟" قد يبدو تجريديًا، لكنه في جوهره سؤال عملي إن أُحسن استخدامه. فحين تعرف قيمك بدقة، تستطيع أن ترفض عرض عمل يتعارض معها دون تردد طويل. وحين تعرف دوافعك الحقيقية، تستطيع أن تختار تخصصًا أو مسارًا يتسق معها بدل أن تتبع توقعات من حولك. وحين تعرف حدودك بصدق، تستطيع أن تضع هدفًا يمكنك الالتزام به فعلًا، بدل هدف طموح على الورق فقط. معرفة الذات إذن ليست غاية في ذاتها، بل أداة تقود إلى قرارات أوضح، وتعريف مهني أكثر صدقًا وثباتًا أمام أي شخص تقابله.',
+          ],
+          en: [
+            "The question 'Who am I?' may appear abstract, yet at its heart it is deeply practical when properly applied. When you pinpoint your core values, you can decline an incongruent job offer without prolonged hesitation. When you recognize your true motivators, you choose a path coherent with them rather than bending to surrounding expectations. And when you honestly acknowledge your boundaries, you set commitments you can actually fulfill rather than ambitious goals purely on paper. Self-knowledge is therefore not an end in itself, but an instrument guiding clearer decisions and a professional identity grounded in authentic confidence before anyone you encounter.",
+          ],
+        },
+      },
+    },
+  },
+  {
     id: "item-personal-website",
     slug: "personal-website",
     category: "website",

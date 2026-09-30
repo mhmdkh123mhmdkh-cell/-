@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
-export function Navbar() {
+export interface NavbarProps {
+  hideLanguageSwitcher?: boolean;
+}
+
+export function Navbar({ hideLanguageSwitcher = false }: NavbarProps = {}) {
   const { lang, setLang, t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -64,35 +68,37 @@ export function Navbar() {
         {/* Right action group: Language Switcher + CTA */}
         <div className="flex items-center gap-3 sm:gap-4">
           {/* Subtle, editorial language switcher inside dark bar */}
-          <div
-            className="flex items-center bg-[#102F49] border border-[#2A526A] rounded-[3px] p-0.5 text-xs font-semibold"
-            role="group"
-            aria-label="Language selection"
-          >
-            <button
-              type="button"
-              onClick={() => setLang("en")}
-              className={`px-2.5 py-1 rounded-[2px] transition-all duration-200 cursor-pointer ${
-                lang === "en"
-                  ? "bg-[#1677B7] text-[#FFFFFF]"
-                  : "text-[#EAF2F4] hover:text-[#FFFFFF]"
-              }`}
+          {!hideLanguageSwitcher && (
+            <div
+              className="flex items-center bg-[#102F49] border border-[#2A526A] rounded-[3px] p-0.5 text-xs font-semibold"
+              role="group"
+              aria-label="Language selection"
             >
-              EN
-            </button>
-            <span className="text-[#2A526A] select-none px-0.5">|</span>
-            <button
-              type="button"
-              onClick={() => setLang("ar")}
-              className={`px-2.5 py-1 rounded-[2px] transition-all duration-200 cursor-pointer ${
-                lang === "ar"
-                  ? "bg-[#1677B7] text-[#FFFFFF] font-arabic"
-                  : "text-[#EAF2F4] hover:text-[#FFFFFF] font-arabic"
-              }`}
-            >
-              عربي
-            </button>
-          </div>
+              <button
+                type="button"
+                onClick={() => setLang("en")}
+                className={`px-2.5 py-1 rounded-[2px] transition-all duration-200 cursor-pointer ${
+                  lang === "en"
+                    ? "bg-[#1677B7] text-[#FFFFFF]"
+                    : "text-[#EAF2F4] hover:text-[#FFFFFF]"
+                }`}
+              >
+                EN
+              </button>
+              <span className="text-[#2A526A] select-none px-0.5">|</span>
+              <button
+                type="button"
+                onClick={() => setLang("ar")}
+                className={`px-2.5 py-1 rounded-[2px] transition-all duration-200 cursor-pointer ${
+                  lang === "ar"
+                    ? "bg-[#1677B7] text-[#FFFFFF] font-arabic"
+                    : "text-[#EAF2F4] hover:text-[#FFFFFF] font-arabic"
+                }`}
+              >
+                عربي
+              </button>
+            </div>
+          )}
 
           {/* Desktop primary talk CTA */}
           <a

@@ -16,13 +16,9 @@ export function SelectedWorkSection() {
         </div>
 
         {/* Portfolio Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {portfolioProjects
-            .filter(
-              (project: PortfolioProject) =>
-                !project.isPlaceholder &&
-                (project.slug === "content-marketing" || project.slug === "personal-website"),
-            )
+            .filter((project: PortfolioProject) => !project.isPlaceholder)
             .map((project: PortfolioProject) => (
               <article
                 key={project.id}

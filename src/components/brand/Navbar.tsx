@@ -22,6 +22,7 @@ export function Navbar({ hideLanguageSwitcher = false }: NavbarProps = {}) {
     { href: "/#capabilities", label: t.nav.capabilities },
     { href: "/#work", label: t.nav.selectedWork },
     { href: "/#experiences", label: t.nav.experiences },
+    { href: "/blog", label: t.nav.blog },
     { href: "/#about", label: t.nav.about },
     { href: "/#contact", label: t.nav.contact },
   ];

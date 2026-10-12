@@ -6,9 +6,23 @@ export interface Translations {
     capabilities: string;
     selectedWork: string;
     experiences: string;
+    blog: string;
     about: string;
     contact: string;
     talkCta: string;
+  };
+  blog: {
+    title: string;
+    subtitle: string;
+    readMore: string;
+    backToBlog: string;
+    backToHome: string;
+    demoBadge: string;
+    demoNotice: string;
+    publishedOn: string;
+    by: string;
+    shareAction: string;
+    emptyNotice: string;
   };
   hero: {
     name: string;
@@ -78,9 +92,25 @@ export const content: Record<Language, Translations> = {
       capabilities: "Capabilities",
       selectedWork: "My Work",
       experiences: "Experiences",
+      blog: "Blog",
       about: "About",
       contact: "Contact",
       talkCta: "Let's talk",
+    },
+    blog: {
+      title: "Blog",
+      subtitle:
+        "Articles, insights, and practical thoughts on content writing, web creation, and digital publishing.",
+      readMore: "Read article →",
+      backToBlog: "← Back to Blog",
+      backToHome: "Home",
+      demoBadge: "Demo Article",
+      demoNotice:
+        "This is a demo post to showcase the blog layout. You can edit or replace it in src/data/blog.ts.",
+      publishedOn: "Published on",
+      by: "By",
+      shareAction: "Share",
+      emptyNotice: "No articles published yet.",
     },
     hero: {
       name: "Mohammad Alkhayouti",
@@ -189,9 +219,25 @@ export const content: Record<Language, Translations> = {
       capabilities: "ما أقدّمه",
       selectedWork: "أعمالي",
       experiences: "تجارب",
+      blog: "المدونة",
       about: "عنّي",
       contact: "تواصل معي",
       talkCta: "لنتحدث",
+    },
+    blog: {
+      title: "المدونة",
+      subtitle:
+        "مقالات، أفكار، وتجارب عملية في صناعة المحتوى العربي، تصميم المواقع المتجاوبة، والعمليات والنشر الرقمي.",
+      readMore: "اقرأ المقال ←",
+      backToBlog: "← العودة إلى المدونة",
+      backToHome: "الرئيسية",
+      demoBadge: "محتوى تجريبي",
+      demoNotice:
+        "هذا مقال تجريبي لتوضيح شكل وتنسيق المقالات. يمكنك استبداله أو حذفه في أي وقت عبر تعديل ملف src/data/blog.ts.",
+      publishedOn: "نُشر في",
+      by: "بقلم",
+      shareAction: "مشاركة",
+      emptyNotice: "لا توجد مقالات منشورة حاليًا.",
     },
     hero: {
       name: "محمد الخيوتي",

@@ -99,10 +99,9 @@ export const content: Record<Language, Translations> = {
     },
     blog: {
       title: "Blog",
-      subtitle:
-        "Articles, insights, and practical thoughts on content writing, web creation, and digital publishing.",
-      readMore: "Read article →",
-      backToBlog: "← Back to Blog",
+      subtitle: "",
+      readMore: "Read article",
+      backToBlog: "Back to Blog",
       backToHome: "Home",
       demoBadge: "Demo Article",
       demoNotice:
@@ -226,10 +225,9 @@ export const content: Record<Language, Translations> = {
     },
     blog: {
       title: "المدونة",
-      subtitle:
-        "مقالات، أفكار، وتجارب عملية في صناعة المحتوى العربي، تصميم المواقع المتجاوبة، والعمليات والنشر الرقمي.",
-      readMore: "اقرأ المقال ←",
-      backToBlog: "← العودة إلى المدونة",
+      subtitle: "",
+      readMore: "اقرأ المقال",
+      backToBlog: "العودة إلى المدونة",
       backToHome: "الرئيسية",
       demoBadge: "محتوى تجريبي",
       demoNotice:

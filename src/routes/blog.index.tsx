@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { LanguageProvider, useLanguage } from "@/context/LanguageContext";
 import { Navbar } from "@/components/brand/Navbar";
 import { blogPosts, type BlogPost } from "@/data/blog";
@@ -6,17 +7,15 @@ import { blogPosts, type BlogPost } from "@/data/blog";
 export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
-      { title: "المدونة | Blog — Mohammad Alkhayouti" },
+      { title: "المدونة — محمد الخيوتي" },
       {
         name: "description",
-        content:
-          "مدونة محمد الخيوتي — مقالات وتجارب وأفكار في صناعة المحتوى، بناء المواقع المتجاوبة، والعمليات والنشر الرقمي.",
+        content: "مدونة محمد الخيوتي — مقالات وتجارب مهنية في صناعة المحتوى والتطوير الرقمي.",
       },
-      { property: "og:title", content: "المدونة | Blog — Mohammad Alkhayouti" },
+      { property: "og:title", content: "المدونة — محمد الخيوتي" },
       {
         property: "og:description",
-        content:
-          "مقالات وتجارب وأفكار في صناعة المحتوى، بناء المواقع المتجاوبة، والعمليات والنشر الرقمي.",
+        content: "مدونة محمد الخيوتي — مقالات وتجارب مهنية في صناعة المحتوى والتطوير الرقمي.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -35,6 +34,31 @@ function BlogIndexPage() {
 
 function BlogIndexContent() {
   const { lang, t, isRtl } = useLanguage();
+
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      const pageTitle = lang === "ar" ? "المدونة — محمد الخيوتي" : "Blog — Mohammad Alkhayouti";
+      const pageDescription =
+        lang === "ar"
+          ? "مدونة محمد الخيوتي — مقالات وتجارب مهنية في صناعة المحتوى والتطوير الرقمي."
+          : "Mohammad Alkhayouti's Blog — Articles, insights, and professional experiences in content and digital strategy.";
+
+      document.title = pageTitle;
+
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        metaDesc.setAttribute("content", pageDescription);
+      }
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) {
+        ogTitle.setAttribute("content", pageTitle);
+      }
+      const ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc) {
+        ogDesc.setAttribute("content", pageDescription);
+      }
+    }
+  }, [lang]);
 
   return (
     <div className="min-h-screen bg-[#C7DDE8] text-[#09263B] selection:bg-[#1677B7] selection:text-[#FFFFFF] transition-colors duration-200">
@@ -62,9 +86,11 @@ function BlogIndexContent() {
                 {t.blog.title}
               </h1>
             </div>
-            <p className="max-w-2xl text-base sm:text-lg text-[#09263B]/85 leading-relaxed font-normal">
-              {t.blog.subtitle}
-            </p>
+            {t.blog.subtitle ? (
+              <p className="max-w-2xl text-base sm:text-lg text-[#09263B]/85 leading-relaxed font-normal">
+                {t.blog.subtitle}
+              </p>
+            ) : null}
           </header>
 
           {/* Articles Grid */}
@@ -116,15 +142,13 @@ function BlogCard({
 }) {
   const title = post.title[lang] || post.title.ar;
   const excerpt = post.excerpt[lang] || post.excerpt.ar;
-  const date = post.date[lang] || post.date.ar;
   const readTime = post.readTime[lang] || post.readTime.ar;
-  const author = post.author[lang] || post.author.ar;
-  const tags = post.tags[lang] || post.tags.ar;
+  const tags = post.tags[lang] && post.tags[lang].length > 0 ? post.tags[lang] : post.tags.ar;
 
   return (
     <article className="editorial-card bg-[#102F49] border border-[#2A526A] rounded-[3px] p-6 sm:p-8 flex flex-col justify-between group hover:border-[#1677B7] transition-all h-full">
       <div className="space-y-4">
-        {/* Meta badges: Demo flag + Tags + Date */}
+        {/* Meta badges: Demo flag + Tags */}
         <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
           <div className="flex flex-wrap items-center gap-2">
             {post.isDemo && (
@@ -143,8 +167,6 @@ function BlogCard({
           </div>
 
           <div className="flex items-center gap-2 text-[#D6E6EC]/70 text-[11px]">
-            <time dateTime={post.isoDate}>{date}</time>
-            <span>•</span>
             <span>{readTime}</span>
           </div>
         </div>
@@ -162,18 +184,14 @@ function BlogCard({
         </p>
       </div>
 
-      {/* Card Footer: Author + Read Link */}
-      <div className="pt-6 mt-6 border-t border-[#2A526A]/70 flex items-center justify-between text-xs sm:text-sm">
-        <span className="text-[#D6E6EC]/75 font-normal">
-          {t.blog.by} <strong className="font-semibold text-[#FFFFFF]">{author}</strong>
-        </span>
-
+      {/* Card Footer: Read Link (Author and Date omitted per requirements) */}
+      <div className="pt-6 mt-6 border-t border-[#2A526A]/70 flex items-center justify-end text-xs sm:text-sm">
         <Link
           to="/blog/$slug"
           params={{ slug: post.slug }}
           className="inline-flex items-center gap-1.5 font-semibold text-[#FFFFFF] group-hover:text-[#1677B7] transition-colors"
         >
-          <span>{lang === "ar" ? "اقرأ المقال" : "Read article"}</span>
+          <span>{t.blog.readMore}</span>
           <span className="transition-transform group-hover:translate-x-0.5">
             {isRtl ? "←" : "→"}
           </span>

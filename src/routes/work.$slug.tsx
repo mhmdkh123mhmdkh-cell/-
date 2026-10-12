@@ -1,25 +1,41 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Navigate } from "@tanstack/react-router";
 import { LanguageProvider, useLanguage } from "@/context/LanguageContext";
 import { Navbar } from "@/components/brand/Navbar";
 import { portfolioProjects, type PortfolioProject } from "@/data/portfolio";
 
 export const Route = createFileRoute("/work/$slug")({
   head: ({ params }) => {
-    const project = portfolioProjects.find((p) => p.slug === params.slug);
-    if (project?.slug === "career-identity") {
-      const title = `${project.title.ar} — محمد الخيوتي`;
-      const description = project.seo.description.ar;
+    if (params.slug === "content-marketing") {
+      const title = "5 طرق للتسويق بالمحتوى للمشاريع الناشئة دون إعلانات — محمد الخيوتي";
       return {
         meta: [
           { title },
-          { name: "description", content: description },
-          { property: "og:title", content: title },
-          { property: "og:description", content: description },
-          { property: "og:type", content: "article" },
-          { name: "twitter:card", content: "summary_large_image" },
+          {
+            name: "description",
+            content:
+              "تعرّف إلى 5 طرق عملية للتسويق بالمحتوى للمشاريع الناشئة، من فهم أسئلة العملاء إلى اختيار القنوات وقياس النتائج دون الاعتماد الكامل على الإعلانات المدفوعة.",
+          },
+          { httpEquiv: "refresh", content: "0; url=/blog/content-marketing-strategies-startups" },
         ],
       };
     }
+
+    if (params.slug === "career-identity") {
+      const title = "كيف تعرّف عن نفسك في مقابلة العمل؟ — محمد الخيوتي";
+      return {
+        meta: [
+          { title },
+          {
+            name: "description",
+            content:
+              "تعلّم كيف تعرّف عن نفسك في مقابلة العمل بطريقة صادقة ومقنعة، عبر فهم مهاراتك وقيمك واستخدام قالب عملي لبناء قصة مهنية واضحة.",
+          },
+          { httpEquiv: "refresh", content: "0; url=/blog/introduce-yourself-job-interview" },
+        ],
+      };
+    }
+
+    const project = portfolioProjects.find((p) => p.slug === params.slug);
 
     const title = project
       ? `${project.title.ar} | ${project.title.en} — Mohammad Alkhayouti`
@@ -53,6 +69,55 @@ function ProjectDetailPage() {
 function ProjectDetailContent() {
   const { slug } = Route.useParams();
   const { lang, t } = useLanguage();
+
+  // Redirect legacy content-marketing work route to published blog version
+  if (slug === "content-marketing") {
+    return (
+      <div className="min-h-screen bg-[#C7DDE8] text-[#09263B] flex flex-col items-center justify-center p-6 text-center space-y-4">
+        <p className="text-base sm:text-lg text-[#09263B]/85 font-medium">
+          {lang === "ar"
+            ? "جاري توجيهك إلى مقال التسويق بالمحتوى في المدونة..."
+            : "Redirecting to the content marketing article in the blog..."}
+        </p>
+        <Link
+          to="/blog/$slug"
+          params={{ slug: "content-marketing-strategies-startups" }}
+          className="text-sm font-semibold text-[#1677B7] hover:underline"
+        >
+          {lang === "ar"
+            ? "اضغط هنا إذا لم يتم الانتقال تلقائيًا"
+            : "Click here if you are not redirected automatically"}
+        </Link>
+        <Navigate
+          to="/blog/$slug"
+          params={{ slug: "content-marketing-strategies-startups" }}
+          replace
+        />
+      </div>
+    );
+  }
+
+  if (slug === "career-identity") {
+    return (
+      <div className="min-h-screen bg-[#C7DDE8] text-[#09263B] flex flex-col items-center justify-center p-6 text-center space-y-4">
+        <p className="text-base sm:text-lg text-[#09263B]/85 font-medium">
+          {lang === "ar"
+            ? "جاري توجيهك إلى مقال التعريف المهني في المدونة..."
+            : "Redirecting to the career interview article in the blog..."}
+        </p>
+        <Link
+          to="/blog/$slug"
+          params={{ slug: "introduce-yourself-job-interview" }}
+          className="text-sm font-semibold text-[#1677B7] hover:underline"
+        >
+          {lang === "ar"
+            ? "اضغط هنا إذا لم يتم الانتقال تلقائيًا"
+            : "Click here if you are not redirected automatically"}
+        </Link>
+        <Navigate to="/blog/$slug" params={{ slug: "introduce-yourself-job-interview" }} replace />
+      </div>
+    );
+  }
 
   const project = portfolioProjects.find((p) => p.slug === slug);
 

@@ -2,6 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { useLanguage } from "@/context/LanguageContext";
 import { portfolioProjects, type PortfolioProject } from "@/data/portfolio";
 
+const EXCLUDED_WORK_SLUGS = ["content-marketing", "career-identity"];
+
 export function SelectedWorkSection() {
   const { lang, t } = useLanguage();
 
@@ -18,7 +20,12 @@ export function SelectedWorkSection() {
         {/* Portfolio Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {portfolioProjects
-            .filter((project: PortfolioProject) => !project.isPlaceholder)
+            .filter(
+              (project: PortfolioProject) =>
+                !project.isPlaceholder &&
+                !project.hideFromPortfolio &&
+                !EXCLUDED_WORK_SLUGS.includes(project.slug),
+            )
             .map((project: PortfolioProject) => (
               <article
                 key={project.id}

@@ -13,18 +13,67 @@ async function main() {
     console.log("[post-build] Copied .output/public to dist/");
   }
 
-  // 2. Prerender root page to dist/index.html
+  // 2. Prerender key routes for static hosting (Netlify, etc.)
   try {
     const ssrPath = path.join(rootDir, ".output", "server", "_ssr", "ssr.mjs");
     if (fs.existsSync(ssrPath)) {
       const ssr = await import(`file://${ssrPath}`);
-      const res = await ssr.default.fetch(new Request("http://localhost:3000/"), {}, {});
-      const html = await res.text();
-      fs.writeFileSync(path.join(distDir, "index.html"), html, "utf-8");
-      console.log(`[post-build] Prerendered dist/index.html (${html.length} bytes)`);
+      const routesToPrerender = [
+        { path: "/", file: path.join(distDir, "index.html") },
+        { path: "/blog", file: path.join(distDir, "blog", "index.html") },
+        {
+          path: "/blog/content-marketing-strategies-startups",
+          file: path.join(distDir, "blog", "content-marketing-strategies-startups", "index.html"),
+        },
+        {
+          path: "/blog/sleeping-with-lights-on",
+          file: path.join(distDir, "blog", "sleeping-with-lights-on", "index.html"),
+        },
+        {
+          path: "/blog/welcome-to-my-blog",
+          file: path.join(distDir, "blog", "welcome-to-my-blog", "index.html"),
+        },
+        {
+          path: "/work/career-identity",
+          file: path.join(distDir, "work", "career-identity", "index.html"),
+        },
+        {
+          path: "/work/content-marketing",
+          file: path.join(distDir, "work", "content-marketing", "index.html"),
+        },
+        {
+          path: "/work/personal-website",
+          file: path.join(distDir, "work", "personal-website", "index.html"),
+        },
+      ];
+
+      for (const route of routesToPrerender) {
+        try {
+          const res = await ssr.default.fetch(
+            new Request(`http://localhost:3000${route.path}`),
+            {},
+            {},
+          );
+          const html = await res.text();
+          fs.mkdirSync(path.dirname(route.file), { recursive: true });
+          fs.writeFileSync(route.file, html, "utf-8");
+          console.log(
+            `[post-build] Prerendered ${route.path} -> ${path.relative(rootDir, route.file)} (${html.length} bytes)`,
+          );
+        } catch (err) {
+          console.warn(`[post-build] Warning: Could not prerender ${route.path}:`, err);
+        }
+      }
     }
   } catch (err) {
-    console.warn("[post-build] Warning: Could not prerender dist/index.html:", err);
+    console.warn("[post-build] Warning: Could not load SSR module:", err);
+  }
+
+  // 3. Guarantee Netlify SPA redirect fallback
+  const redirectsFile = path.join(distDir, "_redirects");
+  if (!fs.existsSync(redirectsFile)) {
+    fs.writeFileSync(redirectsFile, "/* /index.html 200\n", "utf-8");
+    console.log("[post-build] Generated dist/_redirects");
   }
 }
 

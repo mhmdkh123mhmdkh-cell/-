@@ -128,6 +128,7 @@ export interface PortfolioProject {
     };
   };
   isPlaceholder?: boolean;
+  hideFromPortfolio?: boolean;
   caseStudy?: CaseStudyContent;
 }
 
@@ -135,6 +136,7 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     id: "item-writing",
     slug: "content-marketing",
+    hideFromPortfolio: true,
     category: "writing",
     categoryLabel: {
       en: "Writing",
@@ -303,6 +305,7 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     id: "item-career-identity",
     slug: "career-identity",
+    hideFromPortfolio: true,
     category: "writing",
     categoryLabel: {
       en: "Content Writing",

@@ -142,34 +142,37 @@ function BlogCard({
 }) {
   const title = post.title[lang] || post.title.ar;
   const excerpt = post.excerpt[lang] || post.excerpt.ar;
-  const readTime = post.readTime[lang] || post.readTime.ar;
-  const tags = post.tags[lang] && post.tags[lang].length > 0 ? post.tags[lang] : post.tags.ar;
+  const imageSrc = post.cardImage || post.coverImage;
+  const imageAlt =
+    post.cardImageAlt?.[lang] ||
+    post.cardImageAlt?.ar ||
+    post.coverImageAlt?.[lang] ||
+    post.coverImageAlt?.ar ||
+    title;
 
   return (
     <article className="editorial-card bg-[#102F49] border border-[#2A526A] rounded-[3px] p-6 sm:p-8 flex flex-col justify-between group hover:border-[#1677B7] transition-all h-full">
-      <div className="space-y-4">
-        {/* Meta badges: Demo flag + Tags */}
-        <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
-          <div className="flex flex-wrap items-center gap-2">
-            {post.isDemo && (
-              <span className="inline-flex items-center px-2 py-0.5 rounded-[2px] bg-[#1677B7]/25 text-[#EAF2F4] border border-[#1677B7]/60 font-semibold text-[11px]">
-                {t.blog.demoBadge}
-              </span>
-            )}
-            {tags.slice(0, 2).map((tag) => (
-              <span
-                key={tag}
-                className="inline-block px-2 py-0.5 rounded-[2px] bg-[#2A526A]/40 text-[#D6E6EC] border border-[#2A526A] text-[11px]"
-              >
-                {tag}
-              </span>
-            ))}
+      <div className="space-y-5">
+        {/* Card Image */}
+        {imageSrc && (
+          <div className="relative aspect-video w-full bg-[#0B2135] border border-[#2A526A] rounded-[2px] overflow-hidden select-none">
+            <Link
+              to="/blog/$slug"
+              params={{ slug: post.slug }}
+              className="block w-full h-full overflow-hidden"
+              tabIndex={-1}
+              aria-label={title}
+            >
+              <img
+                src={imageSrc}
+                alt={imageAlt}
+                className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-300"
+                loading="lazy"
+                referrerPolicy="no-referrer"
+              />
+            </Link>
           </div>
-
-          <div className="flex items-center gap-2 text-[#D6E6EC]/70 text-[11px]">
-            <span>{readTime}</span>
-          </div>
-        </div>
+        )}
 
         {/* Title */}
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#FFFFFF] group-hover:text-[#1677B7] transition-colors leading-snug">
@@ -184,7 +187,7 @@ function BlogCard({
         </p>
       </div>
 
-      {/* Card Footer: Read Link (Author and Date omitted per requirements) */}
+      {/* Card Footer: Read Link */}
       <div className="pt-6 mt-6 border-t border-[#2A526A]/70 flex items-center justify-end text-xs sm:text-sm">
         <Link
           to="/blog/$slug"
@@ -192,7 +195,7 @@ function BlogCard({
           className="inline-flex items-center gap-1.5 font-semibold text-[#FFFFFF] group-hover:text-[#1677B7] transition-colors"
         >
           <span>{t.blog.readMore}</span>
-          <span className="transition-transform group-hover:translate-x-0.5">
+          <span className="transition-transform group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5">
             {isRtl ? "←" : "→"}
           </span>
         </Link>

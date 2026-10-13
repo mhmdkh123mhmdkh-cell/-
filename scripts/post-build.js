@@ -30,8 +30,12 @@ async function main() {
           file: path.join(distDir, "blog", "sleeping-with-lights-on", "index.html"),
         },
         {
-          path: "/blog/welcome-to-my-blog",
-          file: path.join(distDir, "blog", "welcome-to-my-blog", "index.html"),
+          path: "/blog/introduce-yourself-job-interview",
+          file: path.join(distDir, "blog", "introduce-yourself-job-interview", "index.html"),
+        },
+        {
+          path: "/blog/heartburn-risks-complications-treatment",
+          file: path.join(distDir, "blog", "heartburn-risks-complications-treatment", "index.html"),
         },
         {
           path: "/work/career-identity",

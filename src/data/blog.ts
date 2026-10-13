@@ -16,6 +16,11 @@ export interface BlogPost {
     ar: string;
     en: string;
   };
+  cardImage?: string;
+  cardImageAlt?: {
+    ar: string;
+    en: string;
+  };
   isoDate: string;
   date: {
     ar: string;
@@ -66,6 +71,11 @@ export const blogPosts: BlogPost[] = [
     coverImageAlt: {
       ar: "5 طرق للتسويق بالمحتوى للمشاريع الناشئة دون إعلانات مدفوعة",
       en: "5 Content marketing strategies for startups without paid ads",
+    },
+    cardImage: "/images/blog-content-marketing.jpg",
+    cardImageAlt: {
+      ar: "مكتب عمل هادئ وبسيط يضم دفتر ملاحظات وقلم بمساحة مريحة للتخطيط",
+      en: "A minimalist workspace desk with a clean notebook and pen",
     },
     isoDate: "2026-10-12",
     date: {
@@ -286,9 +296,10 @@ export const blogPosts: BlogPost[] = [
     id: "sleeping-with-lights-on",
     slug: "sleeping-with-lights-on",
     isDemo: false,
-    coverImageAlt: {
-      ar: "غرفة نوم هادئة بإضاءة خافتة قبل النوم",
-      en: "Quiet bedroom with dim lighting before sleep",
+    cardImage: "/images/blog-sleep-lighting.jpg",
+    cardImageAlt: {
+      ar: "غرفة نوم هادئة ليلًا بإضاءة خافتة لطيفة على طاولة جانبية ومساحات واسعة",
+      en: "A quiet bedroom at night with soft dim ambient light",
     },
     isoDate: "2026-10-12",
     date: {
@@ -425,6 +436,11 @@ export const blogPosts: BlogPost[] = [
       ar: "كيف تعرّف عن نفسك في مقابلة العمل؟ من معرفة الذات إلى بناء قصة مهنية",
       en: "",
     },
+    cardImage: "/images/blog-job-interview.jpg",
+    cardImageAlt: {
+      ar: "شخص يستعد بهدوء في قاعة اجتماعات واسعة ومضاءة بنور طبيعي لمقابلة عمل",
+      en: "A professional person quietly preparing in a naturally lit meeting room",
+    },
     isoDate: "2026-10-12",
     date: {
       ar: "12 أكتوبر 2026",
@@ -551,133 +567,266 @@ export const blogPosts: BlogPost[] = [
     },
   },
   {
-    id: "welcome-to-my-blog",
-    slug: "welcome-to-my-blog",
-    isDemo: true,
-    isoDate: "2026-10-12",
+    id: "heartburn-risks-complications-treatment",
+    slug: "heartburn-risks-complications-treatment",
+    isDemo: false,
+    cardImage: "/images/blog-heartburn.jpg",
+    cardImageAlt: {
+      ar: "رسم توضيحي طبي هادئ وبسيط للمريء والمعدة دون نصوص أو تفاصيل معقدة",
+      en: "A calm, simplified medical illustration of the esophagus and stomach",
+    },
+    isoDate: "2026-10-13",
     date: {
-      ar: "12 أكتوبر 2026",
-      en: "October 12, 2026",
+      ar: "13 أكتوبر 2026",
+      en: "October 13, 2026",
     },
     author: {
       ar: "محمد الخيوتي",
       en: "Mohammad Alkhayouti",
     },
     readTime: {
-      ar: "3 دقائق للقراءة",
-      en: "3 min read",
+      ar: "4 دقائق للقراءة",
+      en: "4 min read",
     },
     tags: {
-      ar: ["مقال تجريبي", "صناعة المحتوى", "التطوير الرقمي"],
-      en: ["Demo Post", "Content Writing", "Web Strategy"],
+      ar: [
+        "الصحة والجهاز الهضمي",
+        "حرقة المعدة",
+        "الارتجاع المعدي المريئي",
+        "صحة الجهاز الهضمي",
+        "علاج حرقة المعدة",
+      ],
+      en: ["Digestive Health", "Heartburn", "GERD", "Digestive System", "Heartburn Treatment"],
     },
     title: {
-      ar: "مرحبًا بكم في مدونتي",
-      en: "Welcome to My Blog",
+      ar: "حرقة المعدة: المخاطر والمضاعفات والعلاج",
+      en: "Heartburn: Risks, Complications, and Treatment",
     },
     excerpt: {
-      ar: "هذا مقال تجريبي يوضح شكل وتنسيق المقالات في المدونة. يمكنك استبداله أو إضافة مقالات جديدة بكل سهولة من ملف البيانات.",
-      en: "This is a demo article demonstrating the layout and styling of blog articles. You can easily replace it or add new posts via the data file.",
+      ar: "تعرّف إلى أسباب حرقة المعدة ومضاعفات الارتجاع المعدي المريئي، ومتى تستدعي الأعراض مراجعة الطبيب، وما الخيارات العامة للتعامل معها.",
+      en: "Learn about the causes of heartburn, complications of GERD, when symptoms require seeing a doctor, and general management options.",
     },
     seo: {
       title: {
-        ar: "مرحبًا بكم في مدونتي — محمد الخيوتي",
-        en: "Welcome to My Blog — Mohammad Alkhayouti",
+        ar: "حرقة المعدة: المخاطر والمضاعفات والعلاج",
+        en: "Heartburn: Risks, Complications, and Treatment",
       },
       description: {
-        ar: "مقال تجريبي يوضح بنية وتصميم المدونة على موقع محمد الخيوتي الشخصي، وطريقة إضافة المقالات.",
-        en: "A starter demo post showcasing the layout and structure of Mohammad Alkhayouti's blog.",
+        ar: "تعرّف إلى أسباب حرقة المعدة ومضاعفات الارتجاع المعدي المريئي، ومتى تستدعي الأعراض مراجعة الطبيب، وما الخيارات العامة للتعامل معها.",
+        en: "Learn about the causes of heartburn, complications of GERD, when symptoms require seeing a doctor, and general management options.",
       },
     },
     content: {
       ar: [
         {
-          type: "callout",
-          title: "ملاحظة: هذا محتوى تجريبي جاهز للاستبدال",
-          text: "هذا المقال أُضيف كنموذج هيكلي لتوضيح شكل وتنسيق المدونة داخل الموقع. يمكنك في أي وقت تعديل عنوانه ومحتواه أو استبداله بالكامل من خلال تعديل ملف: src/data/blog.ts دون الحاجة لتغيير أي تصميم في الصفحات.",
-        },
-        {
           type: "paragraph",
-          text: "أهلاً بك في المساحة التدوينية الخاصة بي. أنشأتُ هذه المدونة لتكون نافذة لمشاركة التجارب والأفكار في مجالات كتابة المحتوى العربي الرصين، تصميم وتطوير المواقع المتجاوبة، وإدارة العمليات والنشر الرقمي.",
+          text: "تُعد حرقة المعدة شعورًا حارقًا قد يظهر في الجزء العلوي من البطن أو خلف عظم الصدر. وقد يحدث هذا الشعور عندما يرتد حمض المعدة إلى المريء، وهو الأنبوب الذي يصل الحلق بالمعدة. يحدث الارتجاع عندما لا تعمل العضلة العاصرة السفلية للمريء على نحو مناسب، فتعود محتويات المعدة إلى المريء.",
         },
         {
           type: "heading",
           level: 2,
-          text: "ما الذي ستجده في هذه المدونة؟",
+          text: "المخاطر",
         },
         {
           type: "paragraph",
-          text: "تركز التدوينات القادمة على الموازنة بين الدقة العلمية والأسلوب السلس الجذاب، مع تقديم خطوات عملية قابلة للتطبيق للمبدعين وأصحاب المشاريع والباحثين:",
+          text: "عند حدوث حرقة المعدة بشكل متقطع أو لفترة قصيرة، نادرًا ما تكون خطيرة، لكنها قد تسبب شعورًا مؤقتًا بعدم الراحة وتختفي من تلقاء نفسها عادة. أما إذا كان الشخص يعاني من الحرقة بانتظام، فقد يكون السبب مرض الارتجاع المعدي المريئي، وهو اضطراب يحدث عندما لا تنغلق العضلة العاصرة أسفل المريء بشكل مناسب، ما يسمح لمحتويات المعدة بالارتداد إلى المريء.",
+        },
+        {
+          type: "paragraph",
+          text: "إذا كان الشخص يعاني من الحرقة أكثر من مرتين أسبوعيًا، وكان ذلك يؤثر في حياته اليومية، فقد يكون ذلك علامة تستدعي مناقشة الأعراض مع مختص صحي.",
+        },
+        {
+          type: "heading",
+          level: 2,
+          text: "هل الحرقة خطيرة أثناء الحمل؟",
+        },
+        {
+          type: "paragraph",
+          text: "الحرقة شائعة خلال الحمل، ومع ذلك نادرًا ما تسبب مضاعفات خطيرة وتختفي عادة بعد الولادة.",
+        },
+        {
+          type: "paragraph",
+          text: "أحد أسباب الحرقة أثناء الحمل هو ارتفاع مستوى هرمون البروجسترون، الذي قد يؤدي إلى ارتخاء الصمام الوظيفي بين المريء والمعدة، ما يسمح للحمض بالصعود إلى المريء.",
+        },
+        {
+          type: "paragraph",
+          text: "كما يزداد الضغط على المعدة مع نمو الجنين، ما قد يسبب حدوث الحرقة أو الارتجاع الحمضي، خصوصًا في مراحل الحمل المتأخرة.",
+        },
+        {
+          type: "heading",
+          level: 2,
+          text: "المضاعفات",
+        },
+        {
+          type: "paragraph",
+          text: "قد يرتبط الارتجاع المزمن بمضاعفات، ومنها:",
         },
         {
           type: "list",
           items: [
-            "استراتيجيات كتابة المحتوى التسويقي والعلمي المبني على مصادر موثوقة.",
-            "مبادئ تصميم المواقع الشخصية والتجارية وتجربة المستخدم الخفيفة.",
-            "تنظيم أطر النشر الرقمي باستخدام ووردبريس وأدوات إدارة المحتوى الحديثة.",
-            "تجارب واقعية ودروس مستفادة من مشاريع العمل الحر وسوق العمل.",
+            "التهاب المريء، وقد يؤدي في بعض الحالات إلى النزيف أو القرحة.",
+            "تآكل الأسنان إذا وصل حمض المعدة إلى الفم بشكل متكرر.",
+            "تضيق المريء، ما قد يؤدي إلى صعوبة في البلع.",
+            "مريء باريت، وهي حالة تتغير فيها بطانة المريء.",
+            "قد يصاب عدد قليل من الأشخاص المصابين بمريء باريت بسرطان المريء.",
           ],
         },
         {
-          type: "quote",
-          text: "المحتوى الجيد لا يُقاس بطوله، بل بقدرته على إيصال الفكرة الدقيقة للقارئ المستهدف بأوضح أسلوب وأقل جهد ذهني.",
-          citation: "محمد الخيوتي",
+          type: "paragraph",
+          text: "تشير بعض الدراسات إلى وجود علاقة بين مرض الارتجاع والربو أو تفاقم أعراضه، لكن العلاقة بينهما ما زالت قيد الدراسة ولا تثبت وحدها أن أحدهما يسبب الآخر.",
+        },
+        {
+          type: "paragraph",
+          text: "يمكن أن يساعد تقييم الحالة وعلاج الارتجاع عند الحاجة في تخفيف الأعراض والحد من بعض المخاطر والمضاعفات.",
         },
         {
           type: "heading",
           level: 2,
-          text: "كيف أضيف مقالًا جديدًا إلى هذا الملف؟",
+          text: "هل تؤثر الحرقة على القلب؟",
+        },
+        {
+          type: "callout",
+          title: "تنبيه هام بشأن ألم الصدر وصحة القلب",
+          text: "قد تسبب حرقة المعدة إحساسًا حارقًا في الصدر مصدره المريء أو المعدة، لكن لا ينبغي افتراض أن كل ألم أو حرقان في الصدر سببه حرقة المعدة. إذا كان ألم الصدر شديدًا أو جديدًا، أو ترافق مع ضيق في التنفس أو تعرّق أو ألم يمتد إلى الذراع أو الفك، فاطلب الرعاية الطبية العاجلة فورًا.",
+        },
+        {
+          type: "heading",
+          level: 2,
+          text: "العلاج",
         },
         {
           type: "paragraph",
-          text: "تم بناء هذه المدونة لتعمل بشكل ذاتي وبسيط للغاية؛ حيث يكفي نسخ هذا النموذج في مصفوفة blogPosts وإضافة العنوان، النبذة، التاريخ، والفقرات بالعربية والإنجليزية لتظهر المقالة تلقائيًا في صفحة المدونة مع مسار URL ثابت وخاص بها ومحسّن لمحركات البحث (SEO).",
+          text: "قد يشمل التعامل مع حرقة المعدة تغييرات في نمط الحياة أو أدوية يحددها الطبيب بحسب الحالة. وفي الحالات الشديدة قد يناقش الطبيب خيارات أخرى.",
         },
         {
           type: "paragraph",
-          text: "شكرًا لزيارتك، ويسعدني دومًا تواصلك وملاحظاتك عبر قنوات التواصل المتاحة في الموقع.",
+          text: "تشمل تغييرات نمط الحياة التي قد تساعد بعض الأشخاص:",
+        },
+        {
+          type: "list",
+          items: [
+            "تناول وجبات صغيرة متعددة على مدار اليوم بدلًا من وجبات كبيرة.",
+            "رفع الرأس قليلًا أثناء النوم إذا كان ذلك مناسبًا.",
+            "الحفاظ على وزن صحي.",
+            "تقليل التوتر.",
+            "ملاحظة الأطعمة التي تزيد الأعراض وتقليلها بحسب الاستجابة.",
+          ],
+        },
+        {
+          type: "paragraph",
+          text: "يمكن للحامل التي تعاني من الحرقة استشارة الطبيب بشأن التغييرات والعلاجات المناسبة لحالتها.",
+        },
+        {
+          type: "paragraph",
+          text: "قد تُستخدم أدوية مختلفة لعلاج الحرقة أو الارتجاع، مثل مضادات الحموضة أو حاصرات مستقبلات الهيستامين أو مثبطات مضخة البروتون. يجب اختيار الدواء المناسب واستعماله وفق إرشادات الطبيب أو الصيدلي، وخصوصًا أثناء الحمل أو عند وجود أمراض أخرى أو تناول أدوية أخرى.",
+        },
+        {
+          type: "paragraph",
+          text: "قد يخضع بعض الأشخاص الذين يعانون من الارتجاع المستمر إلى إجراء أو جراحة يحددها الطبيب بعد تقييم الحالة.",
         },
       ],
       en: [
         {
-          type: "callout",
-          title: "Note: Starter Demo Content",
-          text: "This post was added as an editorial placeholder to demonstrate the typography, layout, and responsiveness of the blog. You can easily customize, edit, or remove it in src/data/blog.ts without touching any page layout code.",
-        },
-        {
           type: "paragraph",
-          text: "Welcome to my blog space. I created this blog to share hands-on reflections, insights, and practical guides on reliable content writing, responsive website crafting, and digital publishing pipelines.",
+          text: "Heartburn is a burning sensation that can appear in the upper abdomen or behind the breastbone. It occurs when stomach acid flows back into the esophagus, the muscular tube connecting the throat to the stomach, often when the lower esophageal sphincter relaxes improperly.",
         },
         {
           type: "heading",
           level: 2,
-          text: "What to expect in upcoming articles?",
+          text: "Risks",
         },
         {
           type: "paragraph",
-          text: "Future articles will blend academic precision with reader-focused communication, exploring topics such as:",
+          text: "When heartburn occurs infrequently or for brief periods, it is rarely dangerous, typically causing temporary discomfort before resolving on its own. However, when experienced regularly, it may signal Gastroesophageal Reflux Disease (GERD).",
+        },
+        {
+          type: "paragraph",
+          text: "Experiencing heartburn more than twice a week in a way that impairs daily routine warrants consulting a healthcare professional.",
+        },
+        {
+          type: "heading",
+          level: 2,
+          text: "Is Heartburn Dangerous During Pregnancy?",
+        },
+        {
+          type: "paragraph",
+          text: "Heartburn is common during pregnancy, rarely causes severe complications, and typically resolves following childbirth.",
+        },
+        {
+          type: "paragraph",
+          text: "Elevated progesterone levels can relax the lower esophageal sphincter, allowing acid to travel upward into the esophagus. Furthermore, increasing physical pressure from the developing fetus on the stomach contributes to acid reflux, particularly in the later stages of pregnancy.",
+        },
+        {
+          type: "heading",
+          level: 2,
+          text: "Complications",
+        },
+        {
+          type: "paragraph",
+          text: "Chronic acid reflux can be associated with several complications, including:",
         },
         {
           type: "list",
           items: [
-            "Content marketing strategies that build genuine authority without ad spend.",
-            "Designing clean personal and business websites with great typography and responsive layouts.",
-            "Digital publishing workflows and editorial quality control.",
-            "Practical insights from freelance and client projects.",
+            "Esophagitis, which in certain instances can lead to bleeding or ulcers.",
+            "Dental enamel erosion if acid repeatedly reaches the oral cavity.",
+            "Esophageal strictures, resulting in difficulty swallowing.",
+            "Barrett's esophagus, a condition where the esophageal lining undergoes cellular changes.",
+            "A small subset of individuals with Barrett's esophagus may develop esophageal cancer.",
           ],
         },
         {
-          type: "quote",
-          text: "Effective content is measured not by volume, but by how clearly and efficiently it delivers genuine value to the reader.",
-          citation: "Mohammad Alkhayouti",
+          type: "paragraph",
+          text: "Research notes an observed association between GERD and asthma symptoms, although the relationship remains under study and does not establish sole causality.",
+        },
+        {
+          type: "paragraph",
+          text: "Appropriate clinical evaluation and targeted reflux management help alleviate symptoms and minimize potential risks.",
         },
         {
           type: "heading",
           level: 2,
-          text: "How to add new articles?",
+          text: "Does Heartburn Affect the Heart?",
+        },
+        {
+          type: "callout",
+          title: "Important Safety Warning Regarding Chest Pain",
+          text: "While heartburn originates from the esophagus or stomach, never assume that any chest discomfort is benign reflux. If chest pain is severe, newly onset, or accompanied by shortness of breath, cold sweats, or pain radiating to the arm or jaw, seek emergency medical care immediately.",
+        },
+        {
+          type: "heading",
+          level: 2,
+          text: "Treatment & Management",
         },
         {
           type: "paragraph",
-          text: "This blog uses a lightweight, self-contained data model. To add a new post, simply append an entry to the blogPosts array in src/data/blog.ts. It will automatically show up on the blog index and get its own dedicated SEO-ready URL.",
+          text: "Management generally comprises lifestyle modifications and medications prescribed or recommended by a clinician based on the specific case.",
+        },
+        {
+          type: "paragraph",
+          text: "Helpful lifestyle adjustments may include:",
+        },
+        {
+          type: "list",
+          items: [
+            "Eating smaller, more frequent meals rather than large heavy meals.",
+            "Elevating the head of the bed during sleep when appropriate.",
+            "Maintaining a healthy body weight.",
+            "Managing and reducing stress.",
+            "Identifying and reducing personal food triggers.",
+          ],
+        },
+        {
+          type: "paragraph",
+          text: "Pregnant individuals should always consult their physician regarding safe dietary and therapeutic measures tailored to pregnancy.",
+        },
+        {
+          type: "paragraph",
+          text: "Various medications may be recommended, such as antacids, H2 receptor blockers, or proton pump inhibitors (PPIs). Proper medication must be chosen under professional clinical or pharmaceutical guidance.",
+        },
+        {
+          type: "paragraph",
+          text: "Individuals with persistent or refractory reflux may be evaluated by specialists for procedural or surgical interventions.",
         },
       ],
     },

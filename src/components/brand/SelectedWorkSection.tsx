@@ -29,6 +29,12 @@ export function SelectedWorkSection() {
     watchDrag: true,
   });
 
+  const hasMountedRef = useRef(false);
+
+  useEffect(() => {
+    hasMountedRef.current = true;
+  }, []);
+
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
     const index = emblaApi.selectedScrollSnap();
@@ -36,14 +42,17 @@ export function SelectedWorkSection() {
     setCanScrollPrev(emblaApi.canScrollPrev());
     setCanScrollNext(emblaApi.canScrollNext());
 
-    // Scroll active thumbnail into view smoothly
-    if (thumbnailStripRef.current) {
-      const activeThumb = thumbnailStripRef.current.children[index] as HTMLElement | undefined;
+    // Scroll active thumbnail within the horizontal strip only (never scrollIntoView which scrolls the window)
+    if (hasMountedRef.current && thumbnailStripRef.current) {
+      const container = thumbnailStripRef.current;
+      const activeThumb = container.children[index] as HTMLElement | undefined;
       if (activeThumb) {
-        activeThumb.scrollIntoView({
+        const thumbOffset = activeThumb.offsetLeft;
+        const thumbWidth = activeThumb.offsetWidth;
+        const containerWidth = container.clientWidth;
+        container.scrollTo({
+          left: thumbOffset - containerWidth / 2 + thumbWidth / 2,
           behavior: "smooth",
-          block: "nearest",
-          inline: "center",
         });
       }
     }
@@ -255,7 +264,6 @@ export function SelectedWorkSection() {
           <div
             className="overflow-hidden rounded-[3px] border border-[#2A526A] bg-[#092032] shadow-inner cursor-grab active:cursor-grabbing select-none"
             ref={emblaRef}
-            tabIndex={0}
             role="region"
             aria-label={lang === "ar" ? "معرض صفحات ملف الأعمال" : "Portfolio Pages Gallery"}
           >

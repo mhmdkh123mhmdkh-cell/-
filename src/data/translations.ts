@@ -23,6 +23,10 @@ export interface Translations {
     by: string;
     shareAction: string;
     emptyNotice: string;
+    exploreBlog: string;
+    viewAllArticles: string;
+    homeSectionTitle: string;
+    homeSectionSubtitle: string;
   };
   hero: {
     name: string;
@@ -110,6 +114,10 @@ export const content: Record<Language, Translations> = {
       by: "By",
       shareAction: "Share",
       emptyNotice: "No articles published yet.",
+      exploreBlog: "Explore Blog",
+      viewAllArticles: "View All Articles",
+      homeSectionTitle: "Blog",
+      homeSectionSubtitle: "",
     },
     hero: {
       name: "Mohammad Alkhayouti",
@@ -194,7 +202,7 @@ export const content: Record<Language, Translations> = {
       mainAction: "Contact me",
       whatsapp: {
         label: "Chat on WhatsApp",
-        number: "0981434844",
+        number: "+963981434844",
         url: "https://wa.me/963981434844",
       },
       linkedin: {
@@ -236,6 +244,10 @@ export const content: Record<Language, Translations> = {
       by: "بقلم",
       shareAction: "مشاركة",
       emptyNotice: "لا توجد مقالات منشورة حاليًا.",
+      exploreBlog: "استكشف المدونة",
+      viewAllArticles: "عرض جميع المقالات",
+      homeSectionTitle: "المدونة",
+      homeSectionSubtitle: "",
     },
     hero: {
       name: "محمد الخيوتي",
@@ -318,7 +330,7 @@ export const content: Record<Language, Translations> = {
       mainAction: "تواصل معي",
       whatsapp: {
         label: "تواصل عبر WhatsApp",
-        number: "0981434844",
+        number: "+963981434844",
         url: "https://wa.me/963981434844",
       },
       linkedin: {

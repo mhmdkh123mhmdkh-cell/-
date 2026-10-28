@@ -18,7 +18,7 @@ export function ContactSection() {
             <a
               href={t.contact.whatsapp.url}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-8 py-4 bg-[#1677B7] hover:bg-[#1677B7]/90 text-[#FFFFFF] rounded-[3px] text-base font-bold transition-all duration-200 border border-[#1677B7]"
             >
               <span>{t.contact.mainAction}</span>
@@ -46,7 +46,7 @@ export function ContactSection() {
           <a
             href={t.contact.whatsapp.url}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="editorial-card bg-[#102F49] border border-[#2A526A] p-7 flex flex-col justify-between group hover:border-[#1677B7]"
           >
             <div className="space-y-3">

@@ -256,10 +256,28 @@ function BlogPostContent() {
                 </p>
               </div>
               <a
-                href="/#contact"
-                className="inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-[#FFFFFF] bg-[#1677B7] hover:bg-[#1677B7]/90 rounded-[3px] transition-colors border border-[#1677B7] shadow-sm shrink-0"
+                href={`https://wa.me/963981434844?text=${encodeURIComponent(
+                  lang === "ar"
+                    ? `مرحبًا محمد، قرأت مقالك «${post.title.ar}» وأود التواصل معك.`
+                    : `Hello Mohammad, I read your article "${post.title.en || post.title.ar}" and would like to connect.`,
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-bold text-[#FFFFFF] bg-[#1677B7] hover:bg-[#1677B7]/90 rounded-[3px] transition-colors border border-[#1677B7] shadow-sm shrink-0"
               >
-                {t.nav.talkCta}
+                <span>{t.nav.talkCta}</span>
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  className="w-4 h-4 rtl:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg>
               </a>
             </div>
 

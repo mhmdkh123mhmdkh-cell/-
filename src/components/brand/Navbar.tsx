@@ -66,8 +66,31 @@ export function Navbar({ hideLanguageSwitcher = false }: NavbarProps = {}) {
           ))}
         </nav>
 
-        {/* Right action group: Language Switcher + CTA */}
-        <div className="flex items-center gap-3 sm:gap-4">
+        {/* Right action group: Mobile Blog button + Language Switcher + CTA + Mobile Toggle */}
+        <div className="flex items-center gap-2 sm:gap-4">
+          {/* Direct visible Blog CTA for Mobile users without opening menu */}
+          <a
+            href="/blog"
+            className="md:hidden inline-flex items-center gap-1 px-2.5 py-1.5 rounded-[3px] text-xs font-bold text-[#FFFFFF] bg-[#1677B7] hover:bg-[#1677B7]/90 border border-[#1677B7] transition-colors shadow-xs"
+            aria-label={t.nav.blog}
+          >
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              className="w-3.5 h-3.5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" />
+              <path d="M6 6h10" />
+              <path d="M6 10h10" />
+            </svg>
+            <span>{t.nav.blog}</span>
+          </a>
+
           {/* Subtle, editorial language switcher inside dark bar */}
           {!hideLanguageSwitcher && (
             <div
@@ -141,17 +164,32 @@ export function Navbar({ hideLanguageSwitcher = false }: NavbarProps = {}) {
       {/* Mobile Menu dropdown */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-[#102F49] border-b border-[#2A526A] px-6 py-5 shadow-md">
-          <nav className="flex flex-col gap-3">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-medium text-[#EAF2F4] hover:text-[#FFFFFF] py-1.5 transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
+          <nav className="flex flex-col gap-2.5">
+            {navLinks.map((link) => {
+              const isBlog = link.href === "/blog";
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`text-base font-medium py-2 px-3 rounded-[3px] transition-colors flex items-center justify-between ${
+                    isBlog
+                      ? "text-[#FFFFFF] font-bold bg-[#1677B7]/25 border border-[#1677B7]/50"
+                      : "text-[#EAF2F4] hover:text-[#FFFFFF] hover:bg-[#2A526A]/40"
+                  }`}
+                >
+                  <span className="flex items-center gap-2">
+                    {isBlog && <span className="w-2 h-2 rounded-[1px] bg-[#1677B7]" />}
+                    <span>{link.label}</span>
+                  </span>
+                  {isBlog && (
+                    <span className="text-[11px] bg-[#1677B7] text-[#FFFFFF] px-2 py-0.5 rounded-[2px] font-bold">
+                      {lang === "ar" ? "مقالات" : "Articles"}
+                    </span>
+                  )}
+                </a>
+              );
+            })}
             <div className="pt-3 border-t border-[#2A526A]">
               <a
                 href="/#contact"

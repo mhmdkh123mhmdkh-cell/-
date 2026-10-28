@@ -117,7 +117,13 @@ function BlogIndexContent() {
             </Link>
 
             <a
-              href="/#contact"
+              href={`https://wa.me/963981434844?text=${encodeURIComponent(
+                lang === "ar"
+                  ? "مرحبًا محمد، اطلعت على مدونتك وأود التواصل معك بخصوص مشروع/عمل."
+                  : "Hello Mohammad, I visited your blog and would like to connect regarding a project.",
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-4 py-2 text-xs sm:text-sm font-semibold text-[#FFFFFF] bg-[#1677B7] hover:bg-[#1677B7]/90 rounded-[3px] transition-colors border border-[#1677B7]"
             >
               {t.nav.talkCta}
